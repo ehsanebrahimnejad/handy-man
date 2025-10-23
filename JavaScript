@@ -1,0 +1,30 @@
+function openForm(service) {
+  document.getElementById('serviceForm').style.display = 'block';
+  document.getElementById('serviceName').textContent = service;
+}
+
+function closeForm() {
+  document.getElementById('serviceForm').style.display = 'none';
+}
+
+// Form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Collect data
+  const formData = {
+    service: document.getElementById('serviceName').textContent,
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    details: this.details.value
+  };
+
+  console.log(formData); // For testing - you can remove later
+
+  // Example: Send data to Google Sheets via API or Email
+  alert(`Thank you! Your ${formData.service} request has been submitted.`);
+
+  this.reset();
+  closeForm();
+});
