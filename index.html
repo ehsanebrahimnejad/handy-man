@@ -3,128 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ERS Home Fix — Handyman & Home Repair</title>
+  <title>ERS Home Fix</title>
   <style>
-    :root {
-      --yellow: #f5b400;
-      --dark: #111;
-      --gray: #222;
-      --white: #fff;
-    }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--dark);
-      color: var(--white);
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #FFD700;
     }
-    a { text-decoration: none; color: var(--yellow); }
     header {
-      position: relative;
-      background: url('f9e9b51e-a9d3-48b1-b6ec-cca32d32b15f.png') center/cover no-repeat;
-      height: 80vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding-left: 5%;
-      color: var(--yellow);
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
     }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
-    .btn-call {
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: var(--yellow);
-      color: var(--dark);
+    header nav a {
+      color: #FFD700;
+      text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
+    }
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      background-color: #222;
+    }
+    .hero h1 {
+      font-size: 3em;
+    }
+    .hero button {
+      background-color: #FFD700;
+      color: #111;
+      font-weight: bold;
+      padding: 15px 30px;
       border: none;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1em;
     }
-    nav {
-      position: absolute;
-      top: 20px;
-      right: 5%;
-      display: flex;
-      gap: 20px;
-    }
-    nav a {
-      color: var(--yellow);
-      font-weight: bold;
-    }
-
     section {
-      padding: 60px 5%;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 50px 20px;
     }
-    h2 {
-      color: var(--yellow);
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    .about p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    /* Services */
     .services {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      justify-content: space-around;
+      margin-top: 30px;
     }
-    .service-card {
-      background: var(--gray);
+    .service-box {
+      background-color: #222;
       padding: 20px;
-      border-radius: 12px;
-      flex: 1 1 200px;
       text-align: center;
-      min-width: 200px;
-    }
-    .service-card i {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      display: block;
-      color: var(--yellow);
-    }
-
-    /* Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-    }
-    .gallery div {
-      background: var(--gray);
-      height: 150px;
+      width: 150px;
       border-radius: 10px;
     }
-
-    /* Contact */
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
+    .service-box img {
+      width: 50px;
+      margin-bottom: 10px;
     }
-    .contact-info {
-      flex: 1 1 300px;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 30px;
     }
-    .contact-info p {
-      margin: 10px 0;
+    .gallery div {
+      background-color: #333;
+      height: 150px;
     }
-    .contact-form {
-      flex: 1 1 300px;
+    .contact form {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      max-width: 400px;
     }
-    .contact-form input, .contact-form textarea {
+    .contact input, .contact textarea {
+      margin-bottom: 10px;
       padding: 10px;
-      border-radius: 6px;
       border: none;
-      background: var
+      border-radius: 5px;
+      background-color: #222;
+      color: #FFD700;
+    }
+    .contact button {
+      background-color: #FFD700;
+      color: #111;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    .contact-info a {
+      color: #FFD700;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+    .facebook-icon {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <img src="ERS_logo.png" alt="ERS Home Fix" style="height:50px;">
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>HANDYMAN & HOME REPAIR SERVICES</h1>
+    <button onclick="window.location.href='tel:+16144496291'">CALL NOW</button>
+  </div>
+  <div>
+    <img src="handyman.png" alt="Handyman" style="max-width:300px;">
+  </div>
+</section>
+
+<section id="about">
+  <h2>ABOUT</h2>
+  <p>ERS Home Fix is a professional handyman service offering a wide range of home repair and maintenance solutions, with years of experience. Our skilled team is dedicated to providing high-quality workmanship and reliable service.</p>
+</section>
+
+<section id="services">
+  <h2>SERVICES</h2>
+  <div class="services">
+    <div class="service-box">
+      <img src="plumbing-icon.png" alt="Plumbing">
+      <h3>PLUMBING</h3>
+    </div>
+    <div class="service-box">
+      <img src="electrical-icon.png" alt="Electrical">
+      <h3>ELECTRICAL</h3>
+    </div>
+    <div class="service-box">
+      <img src="repairs-icon.png" alt="Repairs">
+      <h3>REPAIRS</h3>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <h2>GALLERY</h2>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</section>
+
+<section id="contact">
+  <h2>CONTACT</h2>
+  <div class="contact-info">
+    <a href="tel:+16144496281">📞 (614) 449-6281</a>
+    <a href="tel:+12028674220">📞 (202) 867-4220</a>
+    <a href="mailto:e.ris.home.service@gmail.com">✉ e.ris.home.service@gmail.com</a>
+    <a href="https://www.facebook.com/YourPag
