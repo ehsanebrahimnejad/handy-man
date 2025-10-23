@@ -12,6 +12,7 @@
       --orange: #f97316;
       --white: #ffffff;
       --text: #ffffff;
+      --card-bg: rgba(255,255,255,0.05);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -39,99 +40,38 @@
       margin: 0 auto;
       padding: 24px;
     }
+    .highlight {
+      color: var(--yellow);
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin: 20px 0;
+    }
     h1 {
       color: var(--white);
       font-size: 2rem;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.5em;
     }
     h2 {
       color: var(--yellow);
       font-size: 1.5rem;
       margin: 1em 0 0.5em 0;
     }
-    .highlight {
-      color: var(--yellow);
-      font-weight: bold;
-      font-size: 2rem;
-      margin: 20px 0;
-    }
-    p, li {
+    p {
       color: var(--white);
+      margin-bottom: 1em;
     }
-    ul {
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    .card ul {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
     }
-    ul li::before {
+    .card ul li::before {
       content: '✔ ';
-      color: var(--yellow);
-    }
-    .contact {
-      margin-top: 1.5em;
-    }
-    .contact a {
-      color: var(--yellow);
-      text-decoration: none;
-      font-weight: 600;
-      display: block;
-      margin: 4px 0;
-    }
-    footer {
-      margin-top: 2em;
-      font-size: 0.9rem;
-      color: var(--white);
-      background: rgba(0,0,0,0.1);
-      padding: 16px 0;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <img src="logo.png" alt="E.R.S. Home Service logo banner">
-    <div class="quote-banner">
-      Call or Text for a Free Quote: (614) 448-6291 &nbsp; | &nbsp; (202) 867-4220
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="highlight">YOU BREAK IT, WE FIX IT</div>
-
-    <h1>Your Trusted Local Handyman</h1>
-    <p>At <strong>E.R.S. Home Service</strong>, we provide reliable, affordable, and professional handyman services for homes and businesses throughout <strong>Columbus, Dublin, Powell, and Westerville</strong>.</p>
-
-    <h2>Our Services</h2>
-    <ul>
-      <li>Maintenance & Repairs</li>
-      <li>Plumbing</li>
-      <li>Electrical</li>
-      <li>Painting</li>
-      <li>Drywall</li>
-      <li>Carpentry</li>
-      <li>Tiling and more</li>
-    </ul>
-
-    <h2>Why Choose Us?</h2>
-    <p>✅ Fast response & free quotes<br>
-       ✅ Friendly and professional service<br>
-       ✅ Licensed & insured on request<br>
-       ✅ Flexible weekend scheduling</p>
-
-    <div class="contact" id="contact">
-      <h2>Contact Us</h2>
-      <a href="tel:6144486291">📞 (614) 448-6291</a>
-      <a href="tel:2028674220">📞 (202) 867-4220</a>
-      <a href="mailto:e.r.s.home.service@gmail.com">📧 e.r.s.home.service@gmail.com</a>
-    </div>
-  </main>
-
-  <footer>
-    <p>Serving Columbus • Dublin • Powell • Westerville</p>
-    <p>© <span id="year"></span> E.R.S. Home Service — All Rights Reserved</p>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
