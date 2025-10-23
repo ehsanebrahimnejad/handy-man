@@ -1,0 +1,27 @@
+// Select all service links
+document.querySelectorAll('.service-menu a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault(); // prevent default anchor behavior
+
+    // Get the service name
+    const service = link.dataset.service;
+
+    // Show the booking form
+    const bookingDiv = document.getElementById('booking');
+    bookingDiv.style.display = 'block';
+
+    // Fill the service field
+    document.getElementById('selectedService').value = service;
+
+    // Scroll to the form smoothly
+    bookingDiv.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Optional: Handle form submission
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert("Thank you! Your request has been submitted.");
+  this.reset();
+  document.getElementById('booking').style.display = 'none';
+});
