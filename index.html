@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+<div id="booking" style="display:none; margin-top:24px;">
+  <h2>Book Your Service</h2>
+  <form id="bookingForm">
+    <label>
+      Name:<br>
+      <input type="text" name="name" required>
+    </label><br><br>
+    <label>
+      Email:<br>
+      <input type="email" name="email" required>
+    </label><br><br>
+    <label>
+      Phone:<br>
+      <input type="tel" name="phone" required>
+    </label><br><br>
+    <label>
+      Selected Service:<br>
+      <input type="text" name="service" id="selectedService" readonly>
+    </label><br><br>
+    <label>
+      Project Details:<br>
+      <textarea name="details" rows="4" required></textarea>
+    </label><br><br>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<a href="#booking" data-service="Plumbing">
+  <span class="icon" style="color:#00BFFF">🚰</span> Plumbing
+</a>
+
 <!-- Service Booking Menu -->
 <div class="service-menu">
   <a href="#booking" data-service="Maintenance & Repairs">
