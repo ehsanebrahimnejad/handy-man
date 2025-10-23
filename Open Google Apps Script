@@ -1,0 +1,28 @@
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+  // Parse incoming JSON
+  var data = JSON.parse(e.postData.contents);
+
+  // Add new row with timestamp
+  sheet.appendRow([
+    new Date(),
+    data.service,
+    data.name,
+    data.email,
+    data.phone,
+    data.details
+  ]);
+
+  // Send email notification
+  MailApp.sendEmail({
+    to: "e.r.s.home.service@gmail.com", // Your email
+    subject: "New Service Request: " + data.service,
+    htmlBody: "<b>Name:</b> " + data.name + "<br>" +
+              "<b>Email:</b> " + data.email + "<br>" +
+              "<b>Phone:</b> " + data.phone + "<br>" +
+              "<b>Details:</b> " + data.details
+  });
+
+  return ContentService.createTextOutput(JSON.stringify({"result":"success"})).setMimeType(ContentService.MimeType.JSON);
+}
