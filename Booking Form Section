@@ -1,0 +1,22 @@
+<!-- Booking Form -->
+<div id="booking" class="container">
+  <h2>Book a Service</h2>
+  <form id="bookingForm">
+    <label for="service">Service:</label>
+    <input type="text" id="service" name="service" readonly>
+
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="date">Preferred Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <button type="submit">Book Now</button>
+  </form>
+</div>
