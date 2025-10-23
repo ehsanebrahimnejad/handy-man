@@ -1,0 +1,30 @@
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const formData = {
+    service: document.getElementById('serviceName').textContent,
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    details: this.details.value
+  };
+
+  // Use fetch with proper headers for Google Apps Script
+  fetch("YOUR_GOOGLE_WEB_APP_URL_HERE", {
+    method: "POST",
+    mode: "no-cors", // important to avoid CORS errors
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(() => {
+    alert("Thank you! Your " + formData.service + " request has been submitted.");
+    this.reset();
+    closeForm();
+  })
+  .catch(error => {
+    alert("There was an error submitting your request. Please try again.");
+    console.error(error);
+  });
+});
