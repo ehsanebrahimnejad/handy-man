@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>E.R.S. Home Service — Your Trusted Local Handyman</title>
+  <meta name="description" content="E.R.S. Home Service — Trusted local handyman for plumbing, electrical, painting, drywall, carpentry, and more in Columbus, Dublin, Powell, and Westerville." />
+  <style>
+    :root {
+      --blue: #2f63c0;
+      --yellow: #f5b400;
+      --orange: #f97316;
+      --white: #ffffff;
+      --text: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--blue);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+    }
+    header img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      display: block;
+    }
+    .quote-banner {
+      background: var(--orange);
+      color: var(--white);
+      padding: 12px 16px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+      text-align: center;
+    }
+    h1 {
+      color: var(--white);
+      font-size: 2rem;
+      margin-bottom: 0.3em;
+    }
+    h2 {
+      color: var(--yellow);
+      font-size: 1.5rem;
+      margin-top: 1.2em;
+    }
+    p, li {
+      color: var(--white);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li::before {
+      content: '✔ ';
+      color: var(--yellow);
+    }
+    .contact {
+      margin-top: 1.5em;
+    }
+    .contact a {
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+      margin: 4px 0;
+    }
+    footer {
+      margin-top: 2em;
+      font-size: 0.9rem;
+      color: var(--white);
+      background: rgba(0,0,0,0.1);
+      padding: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="file_00000000aa30622fac0067b90016c25b" alt="E.R.S. Home Service logo banner" />
+    <div class="quote-banner">
+      Call or Text for a Free Quote: (614) 448-6291 &nbsp; | &nbsp; (202) 867-4220
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Your Trusted Local Handyman</h1>
+    <p>At <strong>E.R.S. Home Service</strong>, we take pride in providing reliable, affordable, and professional handyman services for homes and businesses throughout <strong>Columbus, Dublin, Powell, and Westerville</strong>.</p>
+
+    <h2>Our Services</h2>
+    <ul>
+      <li>Maintenance & Repairs</li>
+      <li>Plumbing</li>
+      <li>Electrical</li>
+      <li>Painting</li>
+      <li>Drywall</li>
+      <li>Carpentry</li>
+      <li>Tiling and more</li>
+    </ul>
+
+    <h2>Why Choose Us?</h2>
+    <p>✅ Fast response & free quotes<br>
+       ✅ Friendly and professional service<br>
+       ✅ Licensed & insured on request<br>
+       ✅ Flexible weekend scheduling</p>
+
+    <div class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <a href="tel:6144486291">📞 (614) 448-6291</a>
+      <a href="tel:2028674220">📞 (202) 867-4220</a>
+      <a href="mailto:e.r.s.home.service@gmail.com">📧 e.r.s.home.service@gmail.com</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Serving Columbus • Dublin • Powell • Westerville</p>
+    <p>© <span id="year"></span> E.R.S. Home Service — All Rights Reserved</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
