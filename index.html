@@ -3,168 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ERS Home Fix</title>
+  <title>E.R.S. Home Service — Your Trusted Local Handyman</title>
+  <meta name="description" content="E.R.S. Home Service — Trusted local handyman for plumbing, electrical, painting, drywall, carpentry, and more in Columbus, Dublin, Powell, and Westerville." />
   <style>
+    :root {
+      --blue: #2f63c0;
+      --yellow: #f5b400;
+      --orange: #f97316;
+      --white: #ffffff;
+      --text: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #FFD700;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-    }
-    header nav a {
-      color: #FFD700;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 50px;
-      background-color: #222;
-    }
-    .hero h1 {
-      font-size: 3em;
-    }
-    .hero button {
-      background-color: #FFD700;
-      color: #111;
-      font-weight: bold;
-      padding: 15px 30px;
-      border: none;
-      cursor: pointer;
-      font-size: 1em;
-    }
-    section {
-      padding: 50px 20px;
-    }
-    .services {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 30px;
-    }
-    .service-box {
-      background-color: #222;
-      padding: 20px;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--blue);
+      color: var(--text);
+      line-height: 1.6;
       text-align: center;
-      width: 150px;
-      border-radius: 10px;
     }
-    .service-box img {
-      width: 50px;
-      margin-bottom: 10px;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 30px;
-    }
-    .gallery div {
-      background-color: #333;
-      height: 150px;
-    }
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      max-width: 400px;
-    }
-    .contact input, .contact textarea {
-      margin-bottom: 10px;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #222;
-      color: #FFD700;
-    }
-    .contact button {
-      background-color: #FFD700;
-      color: #111;
-      font-weight: bold;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .contact-info {
-      margin-bottom: 20px;
-    }
-    .contact-info a {
-      color: #FFD700;
-      text-decoration: none;
+    header img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
       display: block;
-      margin: 5px 0;
     }
-    .facebook-icon {
-      margin-top: 10px;
+    .quote-banner {
+      background: var(--orange);
+      color: var(--white);
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 {
+      color: var(--white);
+      font-size: 2rem;
+      margin-bottom: 0.3em;
+    }
+    h2 {
+      color: var(--yellow);
+      font-size: 1.5rem;
+      margin: 1em 0 0.5em 0;
+    }
+    .highlight {
+      color: var(--yellow);
+      font-weight: bold;
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+    p, li {
+      color: var(--white);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li::before {
+      content: '✔ ';
+      color: var(--yellow);
+    }
+    .contact {
+      margin-top: 1.5em;
+    }
+    .contact a {
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+      margin: 4px 0;
+    }
+    footer {
+      margin-top: 2em;
+      font-size: 0.9rem;
+      color: var(--white);
+      background: rgba(0,0,0,0.1);
+      padding: 16px 0;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <img src="ERS_logo.png" alt="ERS Home Fix" style="height:50px;">
-  </div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div>
-    <h1>HANDYMAN & HOME REPAIR SERVICES</h1>
-    <button onclick="window.location.href='tel:+16144496291'">CALL NOW</button>
-  </div>
-  <div>
-    <img src="handyman.png" alt="Handyman" style="max-width:300px;">
-  </div>
-</section>
-
-<section id="about">
-  <h2>ABOUT</h2>
-  <p>ERS Home Fix is a professional handyman service offering a wide range of home repair and maintenance solutions, with years of experience. Our skilled team is dedicated to providing high-quality workmanship and reliable service.</p>
-</section>
-
-<section id="services">
-  <h2>SERVICES</h2>
-  <div class="services">
-    <div class="service-box">
-      <img src="plumbing-icon.png" alt="Plumbing">
-      <h3>PLUMBING</h3>
+  <header>
+    <img src="logo.png" alt="E.R.S. Home Service logo banner">
+    <div class="quote-banner">
+      Call or Text for a Free Quote: (614) 448-6291 &nbsp; | &nbsp; (202) 867-4220
     </div>
-    <div class="service-box">
-      <img src="electrical-icon.png" alt="Electrical">
-      <h3>ELECTRICAL</h3>
-    </div>
-    <div class="service-box">
-      <img src="repairs-icon.png" alt="Repairs">
-      <h3>REPAIRS</h3>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section class="gallery">
-  <h2>GALLERY</h2>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-</section>
+  <main class="container">
+    <div class="highlight">YOU BREAK IT, WE FIX IT</div>
 
-<section id="contact">
-  <h2>CONTACT</h2>
-  <div class="contact-info">
-    <a href="tel:+16144496281">📞 (614) 449-6281</a>
-    <a href="tel:+12028674220">📞 (202) 867-4220</a>
-    <a href="mailto:e.ris.home.service@gmail.com">✉ e.ris.home.service@gmail.com</a>
-    <a href="https://www.facebook.com/YourPag
+    <h1>Your Trusted Local Handyman</h1>
+    <p>At <strong>E.R.S. Home Service</strong>, we provide reliable, affordable, and professional handyman services for homes and businesses throughout <strong>Columbus, Dublin, Powell, and Westerville</strong>.</p>
+
+    <h2>Our Services</h2>
+    <ul>
+      <li>Maintenance & Repairs</li>
+      <li>Plumbing</li>
+      <li>Electrical</li>
+      <li>Painting</li>
+      <li>Drywall</li>
+      <li>Carpentry</li>
+      <li>Tiling and more</li>
+    </ul>
+
+    <h2>Why Choose Us?</h2>
+    <p>✅ Fast response & free quotes<br>
+       ✅ Friendly and professional service<br>
+       ✅ Licensed & insured on request<br>
+       ✅ Flexible weekend scheduling</p>
+
+    <div class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <a href="tel:6144486291">📞 (614) 448-6291</a>
+      <a href="tel:2028674220">📞 (202) 867-4220</a>
+      <a href="mailto:e.r.s.home.service@gmail.com">📧 e.r.s.home.service@gmail.com</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Serving Columbus • Dublin • Powell • Westerville</p>
+    <p>© <span id="year"></span> E.R.S. Home Service — All Rights Reserved</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
