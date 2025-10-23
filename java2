@@ -1,0 +1,12 @@
+MailApp.sendEmail({
+  to: "e.r.s.home.service@gmail.com", // <-- this is your email receiving requests
+  subject: "New Service Request",
+  htmlBody: htmlContent
+});
+const formData = {
+  service: document.getElementById('serviceName').textContent,
+  name: this.name.value,
+  email: this.email.value,  // <-- user’s email from the form
+  phone: this.phone.value,
+  details: this.details.value
+};
