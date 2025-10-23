@@ -1,0 +1,6 @@
+fetch("YOUR_GOOGLE_WEB_APP_URL_HERE", {
+  method: "POST",
+  mode: "no-cors",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData)
+})
