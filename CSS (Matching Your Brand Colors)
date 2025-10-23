@@ -1,0 +1,68 @@
+.services {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.service {
+  cursor: pointer;
+  padding: 15px 25px;
+  background: #ffcc00; /* E.R.S Home Service yellow */
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.service:hover {
+  background: #e6b800;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+}
+
+.form-container {
+  background: white;
+  padding: 25px;
+  border: 3px solid #ffcc00;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background: #ffcc00;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.cancel-btn {
+  background: #ccc;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
