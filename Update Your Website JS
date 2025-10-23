@@ -1,0 +1,14 @@
+fetch("YOUR_WEB_APP_URL_HERE", {
+  method: "POST",
+  body: JSON.stringify(formData)
+})
+.then(response => response.json())
+.then(data => {
+  alert("Thank you! Your " + formData.service + " request has been submitted.");
+  document.getElementById('contactForm').reset();
+  closeForm();
+})
+.catch(error => {
+  alert("There was an error submitting your request. Please try again.");
+  console.error(error);
+});
