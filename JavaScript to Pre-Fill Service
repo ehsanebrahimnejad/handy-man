@@ -1,0 +1,20 @@
+<script>
+  const serviceLinks = document.querySelectorAll('.service-menu a');
+  const serviceInput = document.getElementById('service');
+
+  serviceLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const serviceName = link.getAttribute('data-service');
+      serviceInput.value = serviceName;
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Simple form submission (for demo, replace with backend email or API)
+  document.getElementById('bookingForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert(`Thank you! Your booking for "${serviceInput.value}" has been submitted.`);
+    e.target.reset();
+  });
+</script>
