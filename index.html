@@ -1,4 +1,167 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E.R.S Home Service</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #ffcc00;
+      padding: 20px;
+      color: black;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .service {
+      cursor: pointer;
+      padding: 20px 40px;
+      background: #ffcc00;
+      color: black;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .service:hover {
+      background: #e6b800;
+    }
+
+    /* Form Popup */
+    .form-popup {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .form-container {
+      background: white;
+      padding: 25px;
+      border: 3px solid #ffcc00;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .submit-btn {
+      background: #ffcc00;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .cancel-btn {
+      background: #ccc;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>E.R.S Home Service</header>
+
+  <div class="services">
+    <div class="service" onclick="openForm('Plumbing')">Plumbing</div>
+    <div class="service" onclick="openForm('Electrical')">Electrical</div>
+    <div class="service" onclick="openForm('Painting')">Painting</div>
+    <div class="service" onclick="openForm('Carpentry')">Carpentry</div>
+  </div>
+
+  <!-- Contact Form Popup -->
+  <div id="serviceForm" class="form-popup">
+    <div class="form-container">
+      <h2>Request Service: <span id="serviceName"></span></h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone" required>
+        <textarea name="details" placeholder="Describe your request"></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openForm(service) {
+      document.getElementById('serviceForm').style.display = 'block';
+      document.getElementById('serviceName').textContent = service;
+    }
+
+    function closeForm() {
+      document.getElementById('serviceForm').style.display = 'none';
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = {
+        service: document.getElementById('serviceName').textContent,
+        name: this.name.value,
+        email: this.email.value,
+        phone: this.phone.value,
+        details: this.details.value
+      };
+
+      // Send to Google Sheets Web App
+      fetch("YOUR_GOOGLE_WEB_APP_URL_HERE", {
+        method: "POST",
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert("Thank you! Your " + formData.service + " request has been submitted.");
+        this.reset();
+        closeForm();
+      })
+      .catch(error => {
+        alert("There was an error submitting your request. Please try again.");
+        console.error(error);
+      });
+    });
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
 <!-- Services Section -->
 <div class="services">
   <div class="service" onclick="openForm('Plumbing')">Plumbing</div>
