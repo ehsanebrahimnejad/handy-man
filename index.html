@@ -3,75 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E.R.S. Home Service — Your Trusted Local Handyman</title>
-  <meta name="description" content="E.R.S. Home Service — Trusted local handyman for plumbing, electrical, painting, drywall, carpentry, and more in Columbus, Dublin, Powell, and Westerville." />
+  <title>ERS Home Fix — Handyman & Home Repair</title>
   <style>
     :root {
-      --blue: #2f63c0;
       --yellow: #f5b400;
-      --orange: #f97316;
-      --white: #ffffff;
-      --text: #ffffff;
-      --card-bg: rgba(255,255,255,0.05);
+      --dark: #111;
+      --gray: #222;
+      --white: #fff;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--blue);
-      color: var(--text);
-      line-height: 1.6;
-      text-align: center;
-    }
-    header img {
-      width: 100%;
-      max-height: 350px;
-      object-fit: cover;
-      display: block;
-    }
-    .quote-banner {
-      background: var(--orange);
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
       color: var(--white);
-      padding: 12px 16px;
-      font-weight: 700;
-      font-size: 18px;
     }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-    .highlight {
+    a { text-decoration: none; color: var(--yellow); }
+    header {
+      position: relative;
+      background: url('f9e9b51e-a9d3-48b1-b6ec-cca32d32b15f.png') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 5%;
       color: var(--yellow);
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin: 20px 0;
     }
-    h1 {
-      color: var(--white);
-      font-size: 2rem;
-      margin-bottom: 0.5em;
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    .btn-call {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: var(--yellow);
+      color: var(--dark);
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 5%;
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: var(--yellow);
+      font-weight: bold;
+    }
+
+    section {
+      padding: 60px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     h2 {
       color: var(--yellow);
-      font-size: 1.5rem;
-      margin: 1em 0 0.5em 0;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
-    p {
-      color: var(--white);
-      margin-bottom: 1em;
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
+
+    /* Services */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .service-card {
+      background: var(--gray);
       padding: 20px;
-      margin: 15px auto;
-      max-width: 500px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      text-align: left;
+      border-radius: 12px;
+      flex: 1 1 200px;
+      text-align: center;
+      min-width: 200px;
     }
-    .card ul {
-      list-style: none;
-      padding-left: 0;
+    .service-card i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: block;
+      color: var(--yellow);
     }
-    .card ul li::before {
-      content: '✔ ';
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .gallery div {
+      background: var(--gray);
+      height: 150px;
+      border-radius: 10px;
+    }
+
+    /* Contact */
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .contact-info {
+      flex: 1 1 300px;
+    }
+    .contact-info p {
+      margin: 10px 0;
+    }
+    .contact-form {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      background: var
