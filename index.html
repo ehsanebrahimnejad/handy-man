@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+<!-- Services Section -->
+<div class="services">
+  <div class="service" onclick="openForm('Plumbing')">Plumbing</div>
+  <div class="service" onclick="openForm('Electrical')">Electrical</div>
+  <div class="service" onclick="openForm('Painting')">Painting</div>
+  <div class="service" onclick="openForm('Carpentry')">Carpentry</div>
+</div>
+
+<!-- Contact Form Popup -->
+<div id="serviceForm" class="form-popup">
+  <div class="form-container">
+    <h2>Request Service: <span id="serviceName"></span></h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone" required>
+      <textarea name="details" placeholder="Describe your request"></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+      <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
+    </form>
+  </div>
+</div>
+
 <div id="booking" style="display:none; margin-top:24px;">
   <h2>Book Your Service</h2>
   <form id="bookingForm">
