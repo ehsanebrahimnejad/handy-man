@@ -151,69 +151,36 @@
       <a href="mailto:e.r.s.home.service@gmail.com">📧 e.r.s.home.service@gmail.com</a>
     </div>
   </main>
+<form id="ersForm">
+  <input name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input name="services" placeholder="Service Type" required>
+  <input name="address" placeholder="Address" required>
+  <input name="zip" placeholder="Zip Code" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
 
-  <!-- Service Form Popup -->
-  <div id="serviceForm" class="form-popup">
-    <div class="form-container">
-      <h2>Request Service: <span id="serviceName"></span></h2>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="tel" name="phone" placeholder="Your Phone" required>
-        <textarea name="details" placeholder="Describe your request"></textarea>
-        <button type="submit" class="submit-btn">Submit</button>
-        <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
-      </form>
-    </div>
-  </div>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbylvc1xtR9XOdbXwKPWSuzzBrIqMi63r3RwUhZCSVJopLuPk__43Hg415U-AJ8-_62sPA/exec" // paste your deployed Apps Script URL here
 
-  <footer>
-    <p>Serving Columbus • Dublin • Powell • Westerville</p>
-    <p>© <span id="year"></span> E.R.S. Home Service — All Rights Reserved</p>
-  </footer>
+  document.getElementById('ersForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(e.target));
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(() => alert('✅ Message sent successfully!'))
+    .catch(err => alert('❌ Error: ' + err.message));
+  });
+</script>
 
-  <script>
-    // Year update
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Open/close form
-    function openForm(service) {
-      document.getElementById('serviceForm').style.display = 'block';
-      document.getElementById('serviceName').textContent = service;
-    }
-    function closeForm() {
-      document.getElementById('serviceForm').style.display = 'none';
-    }
+  
+      
 
-    // Submit form
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const formData = {
-        service: document.getElementById('serviceName').textContent,
-        name: this.name.value,
-        email: this.email.value,
-        phone: this.phone.value,
-        details: this.details.value
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycbylvc1xtR9XOdbXwKPWSuzzBrIqMi63r3RwUhZCSVJopLuPk__43Hg415U-AJ8-_62sPA/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      })
-      .then(() => {
-        alert("Thank you! Your " + formData.service + " request has been submitted.");
-        this.reset();
-        closeForm();
-      })
-      .catch(error => {
-        alert("There was an error submitting your request. Please try again.");
-        console.error(error);
-      });
-    });
-  </script>
 
 </body>
 </html>
