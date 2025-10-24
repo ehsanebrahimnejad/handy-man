@@ -1,4 +1,4 @@
-fetch("YOUR_GOOGLE_WEB_APP_URL_HERE", {
+fetch("https://script.google.com/macros/s/AKfycbzBa3fnki8XWbn_T2RAX02z-9UA68jvs4yShteuRYRyRLnUnkOMlx76pC4HN9iLxmYu_w/exec ", {
   method: "POST",
   mode: "no-cors",
   headers: { "Content-Type": "application/json" },
