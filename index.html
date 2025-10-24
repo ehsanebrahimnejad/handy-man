@@ -1,55 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E.R.S Home Service — Your Trusted Local Handyman</title>
   <meta name="description" content="E.R.S. Home Service — Trusted local handyman for plumbing, electrical, painting, drywall, carpentry, and more in Columbus, Dublin, Powell, and Westerville.">
   <style>
     :root {
-      --blue: #2f63c0;
-      --yellow: #f5b400;
+      --blue: #1e3a8a;
+      --yellow: #facc15;
       --orange: #f97316;
       --white: #ffffff;
-      --text: #ffffff;
+      --gray: #f9fafb;
+      --text-dark: #111827;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--blue);
-      color: var(--text);
+      color: var(--white);
       line-height: 1.6;
-      text-align: center;
     }
+
     header img {
       width: 100%;
       max-height: 350px;
       object-fit: cover;
       display: block;
     }
+
     .quote-banner {
       background: var(--orange);
       color: var(--white);
-      padding: 12px 16px;
+      text-align: center;
+      padding: 14px 16px;
       font-weight: 700;
       font-size: 18px;
     }
+
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 32px 16px;
+      text-align: center;
     }
-    h1 { color: var(--white); font-size: 2rem; margin-bottom: 0.3em; }
-    h2 { color: var(--yellow); font-size: 1.5rem; margin: 1em 0 0.5em 0; }
-    .highlight { color: var(--yellow); font-weight: bold; font-size: 2rem; margin: 20px 0; }
-    p, li { color: var(--white); }
-    ul { list-style: none; padding: 0; }
-    ul li::before { content: '✔ '; color: var(--yellow); }
-    .contact { margin-top: 1.5em; }
-    .contact a { color: var(--yellow); text-decoration: none; font-weight: 600; display: block; margin: 4px 0; }
-    footer { margin-top: 2em; font-size: 0.9rem; color: var(--white); background: rgba(0,0,0,0.1); padding: 16px 0; }
 
-    /* Services & Form Popup */
+    h1 {
+      color: var(--white);
+      font-size: 2.2rem;
+      margin-bottom: 0.5em;
+    }
+
+    h2 {
+      color: var(--yellow);
+      font-size: 1.6rem;
+      margin: 1.5em 0 0.7em;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 1em;
+    }
+
+    .highlight {
+      color: var(--yellow);
+      font-weight: bold;
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
     .services {
       display: flex;
       flex-wrap: wrap;
@@ -57,66 +83,96 @@
       gap: 15px;
       margin: 30px 0;
     }
+
     .service {
       cursor: pointer;
-      padding: 20px 40px;
+      padding: 15px 30px;
       background: var(--yellow);
-      color: black;
+      color: var(--text-dark);
       font-weight: bold;
       border-radius: 10px;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
-    .service:hover { background: #e6b800; }
-    .form-popup {
-      display: none;
-      position: fixed;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      width: 90%;
-      max-width: 400px;
+
+    .service:hover {
+      background: #eab308;
+      transform: translateY(-3px);
     }
-    .form-container {
-      background: white;
+
+    .contact {
+      margin-top: 2em;
+      text-align: center;
+    }
+
+    .contact a {
+      display: block;
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 5px 0;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      margin-top: 2em;
+      font-size: 0.9rem;
+      color: var(--white);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 16px 0;
+      text-align: center;
+    }
+
+    /* Contact Form */
+    form {
+      background: var(--gray);
+      color: var(--text-dark);
+      max-width: 500px;
+      margin: 2em auto;
       padding: 25px;
-      border: 3px solid var(--yellow);
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
       text-align: left;
     }
-    .form-container input,
-    .form-container textarea {
+
+    form input,
+    form textarea {
       width: 100%;
       padding: 10px;
-      margin: 8px 0;
+      margin: 8px 0 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      box-sizing: border-box;
+      font-size: 1rem;
     }
-    .submit-btn {
-      background: var(--yellow);
+
+    form button {
+      background: var(--orange);
       border: none;
-      padding: 10px 20px;
+      padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
       border-radius: 5px;
-      margin-right: 10px;
+      color: var(--white);
+      font-size: 1rem;
+      transition: 0.3s;
     }
-    .cancel-btn {
-      background: #ccc;
-      border: none;
-      padding: 10px 20px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
+
+    form button:hover {
+      background: #ea580c;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .service {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo.png" alt="E.R.S. Home Service logo banner">
+    <img src="logo.png" alt="E.R.S. Home Service logo banner" />
     <div class="quote-banner">
       Call or Text for a Free Quote: (614) 448-6291 &nbsp; | &nbsp; (202) 867-4220
     </div>
@@ -126,61 +182,71 @@
     <div class="highlight">YOU BREAK IT, WE FIX IT</div>
 
     <h1>Your Trusted Local Handyman</h1>
-    <p>At <strong>E.R.S. Home Service</strong>, we provide reliable, affordable, and professional handyman services for homes and businesses throughout <strong>Columbus, Dublin, Powell, and Westerville</strong>.</p>
+    <p>
+      At <strong>E.R.S. Home Service</strong>, we provide reliable, affordable,
+      and professional handyman services for homes and businesses throughout
+      <strong>Columbus, Dublin, Powell, and Westerville</strong>.
+    </p>
 
     <h2>Our Services</h2>
     <div class="services">
-      <div class="service" onclick="openForm('Maintenance & Repairs')">Maintenance & Repairs</div>
-      <div class="service" onclick="openForm('Plumbing')">Plumbing</div>
-      <div class="service" onclick="openForm('Electrical')">Electrical</div>
-      <div class="service" onclick="openForm('Painting')">Painting</div>
-      <div class="service" onclick="openForm('Drywall')">Drywall</div>
-      <div class="service" onclick="openForm('Carpentry')">Carpentry</div>
-      <div class="service" onclick="openForm('Tiling')">Tiling</div>
+      <div class="service" onclick="fillService('Maintenance & Repairs')">Maintenance & Repairs</div>
+      <div class="service" onclick="fillService('Plumbing')">Plumbing</div>
+      <div class="service" onclick="fillService('Electrical')">Electrical</div>
+      <div class="service" onclick="fillService('Painting')">Painting</div>
+      <div class="service" onclick="fillService('Drywall')">Drywall</div>
+      <div class="service" onclick="fillService('Carpentry')">Carpentry</div>
+      <div class="service" onclick="fillService('Tiling')">Tiling</div>
     </div>
 
-    <h2>Why Choose Us?</h2>
-    <p>✅ Fast response & free quotes<br>
-       ✅ Friendly and professional service<br>
-       ✅ Flexible weekend scheduling</p>
-
-    <div class="contact" id="contact">
-      <h2>Contact Us</h2>
+    <h2>Contact Us</h2>
+    <div class="contact">
       <a href="tel:6144486291">📞 (614) 448-6291</a>
       <a href="tel:2028674220">📞 (202) 867-4220</a>
       <a href="mailto:e.r.s.home.service@gmail.com">📧 e.r.s.home.service@gmail.com</a>
     </div>
+
+    <form id="ersForm">
+      <h2 style="text-align:center; color:#1e3a8a;">Get a Free Quote</h2>
+      <input name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input name="service" id="serviceInput" placeholder="Service Type" required />
+      <input name="address" placeholder="Address" required />
+      <input name="zip" placeholder="Zip Code" required />
+      <textarea name="message" placeholder="Describe your project..." rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </main>
-<form id="ersForm">
-  <input name="name" placeholder="Full Name" required>
-  <input type="email" name="email" placeholder="Email Address" required>
-  <input name="services" placeholder="Service Type" required>
-  <input name="address" placeholder="Address" required>
-  <input name="zip" placeholder="Zip Code" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
-  <button type="submit">Send Message</button>
-</form>
 
-<script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbylvc1xtR9XOdbXwKPWSuzzBrIqMi63r3RwUhZCSVJopLuPk__43Hg415U-AJ8-_62sPA/exec" // paste your deployed Apps Script URL here
+  <footer>
+    © 2025 E.R.S. Home Service — All Rights Reserved.
+  </footer>
 
-  document.getElementById('ersForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const formData = Object.fromEntries(new FormData(e.target));
-    fetch(scriptURL, {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(() => alert('✅ Message sent successfully!'))
-    .catch(err => alert('❌ Error: ' + err.message));
-  });
-</script>
+  <script>
+    // Google Apps Script endpoint
+    const scriptURL = "https://script.google.com/macros/s/AKfycbylvc1xtR9XOdbXwKPWSuzzBrIqMi63r3RwUhZCSVJopLuPk__43Hg415U-AJ8-_62sPA/exec";
 
+    // Handle form submit
+    document.getElementById("ersForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const formData = Object.fromEntries(new FormData(e.target));
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then(() => {
+          alert("✅ Message sent successfully!");
+          e.target.reset();
+        })
+        .catch(err => alert("❌ Error: " + err.message));
+    });
 
-  
-      
-
-
+    // Auto-fill service field when clicked
+    function fillService(service) {
+      document.getElementById("serviceInput").value = service;
+      document.getElementById("serviceInput").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
