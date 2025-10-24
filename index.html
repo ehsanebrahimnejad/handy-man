@@ -15,11 +15,7 @@
       --text-dark: #111827;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -51,30 +47,13 @@
       text-align: center;
     }
 
-    h1 {
-      color: var(--white);
-      font-size: 2.2rem;
-      margin-bottom: 0.5em;
-    }
+    h1 { color: var(--white); font-size: 2.2rem; margin-bottom: 0.5em; }
 
-    h2 {
-      color: var(--yellow);
-      font-size: 1.6rem;
-      margin: 1.5em 0 0.7em;
-    }
+    h2 { color: var(--yellow); font-size: 1.6rem; margin: 1.5em 0 0.7em; }
 
-    p {
-      font-size: 1rem;
-      color: var(--white);
-      margin-bottom: 1em;
-    }
+    p { font-size: 1rem; color: var(--white); margin-bottom: 1em; }
 
-    .highlight {
-      color: var(--yellow);
-      font-weight: bold;
-      font-size: 2rem;
-      margin: 20px 0;
-    }
+    .highlight { color: var(--yellow); font-weight: bold; font-size: 2rem; margin: 20px 0; }
 
     .services {
       display: flex;
@@ -161,12 +140,8 @@
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      .service {
-        width: 100%;
-      }
+      h1 { font-size: 1.8rem; }
+      .service { width: 100%; }
     }
   </style>
 </head>
@@ -224,22 +199,28 @@
 
   <script>
     // Google Apps Script endpoint
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxspzwzoZ3ZKHHIAPL_m2Oj--Da1_k-gJ3Zs17WlSrycnCDdwJqBqiTD5f0zn7WXX8KOQ/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycby7LTetKAwNhj7yyUjIf6Wachsnf9K8fmJ6LIgDw5itdZ2J2nnyB4X_EgwxN0WsVlOwpA/exec";
 
     // Handle form submit
     document.getElementById("ersForm").addEventListener("submit", e => {
       e.preventDefault();
       const formData = Object.fromEntries(new FormData(e.target));
+
       fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify(formData),
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=utf-8" }, // <- fix CORS issue
+        body: JSON.stringify(formData)
       })
-        .then(() => {
+      .then(response => response.json())
+      .then(data => {
+        if(data.result === "success") {
           alert("✅ Message sent successfully!");
           e.target.reset();
-        })
-        .catch(err => alert("❌ Error: " + err.message));
+        } else {
+          alert("❌ Error: " + data.message);
+        }
+      })
+      .catch(err => alert("❌ Error: " + err.message));
     });
 
     // Auto-fill service field when clicked
