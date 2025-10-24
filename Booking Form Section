@@ -1,22 +1,25 @@
-<!-- Booking Form -->
-<div id="booking" class="container">
-  <h2>Book a Service</h2>
-  <form id="bookingForm">
-    <label for="service">Service:</label>
-    <input type="text" id="service" name="service" readonly>
+<form id="ersForm">
+  <input name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input name="services" placeholder="Service Type" required>
+  <input name="address" placeholder="Address" required>
+  <input name="zip" placeholder="Zip Code" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
 
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required>
+<script>
+  const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL'; // paste your deployed Apps Script URL here
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="phone">Phone:</label>
-    <input type="tel" id="phone" name="phone" required>
-
-    <label for="date">Preferred Date:</label>
-    <input type="date" id="date" name="date" required>
-
-    <button type="submit">Book Now</button>
-  </form>
-</div>
+  document.getElementById('ersForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(e.target));
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(() => alert('✅ Message sent successfully!'))
+    .catch(err => alert('❌ Error: ' + err.message));
+  });
+</script>
