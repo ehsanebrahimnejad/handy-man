@@ -22,6 +22,7 @@
       background: var(--blue);
       color: var(--white);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -30,7 +31,7 @@
     }
 
     header img {
-      width: 250px; /* Adjust size as needed */
+      width: 250px;
       max-height: 150px;
       object-fit: contain;
       display: block;
@@ -113,7 +114,6 @@
       text-align: center;
     }
 
-    /* Contact Form */
     form {
       background: var(--gray);
       color: var(--text-dark);
@@ -163,7 +163,6 @@
       margin-top: 10px;
     }
 
-    /* Floating Free Quote Button */
     .floating-quote-btn {
       position: fixed;
       bottom: 20px;
@@ -192,8 +191,9 @@
 </head>
 <body>
   <header>
-    <!-- Logo Image -->
-    <img src="logo.png" alt="E.R.S. Home Service Logo" />
+    <!-- Hosted Logo Image -->
+    <img src="https://i.ibb.co/Yc3fQh5/ers-logo.png" alt="E.R.S. Home Service Logo" />
+
     <!-- Clickable Free Quote Banner -->
     <div class="quote-banner" onclick="document.getElementById('ersForm').scrollIntoView({ behavior: 'smooth' });">
       Call or Text for a Free Quote: (614) 448-6291 &nbsp; | &nbsp; (202) 867-4220
@@ -251,7 +251,6 @@
     </form>
   </main>
 
-  <!-- Floating Free Quote Button -->
   <a href="#ersForm" class="floating-quote-btn">
     💬 Free Quote
   </a>
