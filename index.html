@@ -4,250 +4,118 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E.R.S Home Service — Your Trusted Local Handyman</title>
-  <meta name="description" content="E.R.S. Home Service — Trusted local handyman for plumbing, electrical, painting, drywall, carpentry, and more in Columbus, Dublin, Powell, and Westerville.">
+  <meta name="description" content="E.R.S. Home Service — Trusted local handyman for plumbing, electrical, painting, drywall, carpentry, and more in Columbus, Ohio." />
   <style>
-    :root {
-      --blue: #1e3a8a;
-      --yellow: #facc15;
-      --orange: #f97316;
-      --white: #ffffff;
-      --gray: #f9fafb;
-      --text-dark: #111827;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--blue);
-      color: var(--white);
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
     }
-
-    header img {
-      width: 100%;
-      max-height: 350px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .quote-banner {
-      background: var(--orange);
-      color: var(--white);
-      text-align: center;
-      padding: 14px 16px;
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 16px;
-      text-align: center;
-    }
-
-    h1 { color: var(--white); font-size: 2.2rem; margin-bottom: 0.5em; }
-
-    h2 { color: var(--yellow); font-size: 1.6rem; margin: 1.5em 0 0.7em; }
-
-    p { font-size: 1rem; color: var(--white); margin-bottom: 1em; }
-
-    .highlight { color: var(--yellow); font-weight: bold; font-size: 2rem; margin: 20px 0; }
-
-    .services {
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px 10px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin: 30px 0;
+      align-items: center;
+      justify-content: space-between;
     }
-
-    .service {
-      cursor: pointer;
-      padding: 15px 30px;
-      background: var(--yellow);
-      color: var(--text-dark);
-      font-weight: bold;
-      border-radius: 10px;
-      transition: 0.3s ease;
+    header img {
+      height: 60px;
     }
-
-    .service:hover {
-      background: #eab308;
-      transform: translateY(-3px);
+    header h1 {
+      margin: 0 10px;
+      font-size: 24px;
     }
-
-    .contact {
-      margin-top: 2em;
-      text-align: center;
-    }
-
-    .contact a {
-      display: block;
-      color: var(--yellow);
+    nav a {
+      color: white;
+      margin-left: 20px;
       text-decoration: none;
-      font-weight: 600;
-      margin: 5px 0;
-      font-size: 1.1rem;
-    }
-
-    footer {
-      margin-top: 2em;
-      font-size: 0.9rem;
-      color: var(--white);
-      background: rgba(0, 0, 0, 0.2);
-      padding: 16px 0;
-      text-align: center;
-    }
-
-    /* Contact Form */
-    form {
-      background: var(--gray);
-      color: var(--text-dark);
-      max-width: 500px;
-      margin: 2em auto;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-      text-align: left;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    form button {
-      background: var(--orange);
-      border: none;
-      padding: 12px 20px;
       font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      color: var(--white);
-      font-size: 1rem;
-      transition: 0.3s;
     }
-
-    form button:hover {
-      background: #ea580c;
+    nav a:hover {
+      text-decoration: underline;
     }
-
-    #service-area {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 40px;
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      border-radius: 8px;
     }
-
-    #service-area img {
-      border-radius: 10px;
-      margin-top: 10px;
+    h2 {
+      color: #0077cc;
     }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      .service { width: 100%; }
+    .contact-info p {
+      margin: 5px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0077cc;
+      color: white;
+      margin-top: 20px;
+    }
+    .logo-title {
+      display: flex;
+      align-items: center;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="E.R.S. Home Service logo banner" />
-    <div class="quote-banner">
-      Call or Text for a Free Quote: (614) 448-6291 &nbsp; | &nbsp; (202) 867-4220
-    </div>
-  </header>
 
-  <main class="container">
-    <div class="highlight">YOU BREAK IT, WE FIX IT</div>
+<header>
+  <div class="logo-title">
+    <img src="logo.png" alt="E.R.S Home Service Logo" />
+    <h1>E.R.S Home Service</h1>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#area">Service Area</a>
+  </nav>
+</header>
 
-    <h1>Your Trusted Local Handyman</h1>
-    <p>
-      At <strong>E.R.S. Home Service</strong>, we provide reliable, affordable,
-      and professional handyman services for homes and businesses throughout
-      <strong>Columbus, Dublin, Powell, and Westerville</strong>.
-    </p>
+<div class="container">
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to E.R.S Home Service! We provide reliable handyman services including plumbing, electrical, painting, drywall, carpentry, and more. Serving Columbus, Ohio, and areas within a 50-mile radius.</p>
+  </section>
 
+  <section id="services">
     <h2>Our Services</h2>
-    <div class="services">
-      <div class="service" onclick="fillService('Maintenance & Repairs')">Maintenance & Repairs</div>
-      <div class="service" onclick="fillService('Plumbing')">Plumbing</div>
-      <div class="service" onclick="fillService('Electrical')">Electrical</div>
-      <div class="service" onclick="fillService('Painting')">Painting</div>
-      <div class="service" onclick="fillService('Drywall')">Drywall</div>
-      <div class="service" onclick="fillService('Carpentry')">Carpentry</div>
-      <div class="service" onclick="fillService('Tiling')">Tiling</div>
-    </div>
+    <ul>
+      <li>Plumbing</li>
+      <li>Electrical Work</li>
+      <li>Painting</li>
+      <li>Drywall Repair</li>
+      <li>Carpentry</li>
+      <li>General Handyman Services</li>
+    </ul>
+  </section>
 
-    <section id="service-area">
-      <h2>Our Service Area</h2>
-      <p>We proudly serve <strong>Columbus, Ohio</strong>, and all surrounding areas within a <strong>50-mile radius</strong>.</p>
-      <a href="https://www.google.com/maps/search/Columbus,+Ohio/" target="_blank">
-        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Columbus,Ohio&zoom=10&size=600x400&maptype=roadmap&markers=color:red%7Clabel:C%7CColumbus,Ohio" 
-             alt="Columbus, Ohio Service Area Map" 
-             style="width:100%; max-width:600px; border:0;">
-      </a>
-    </section>
-
+  <section id="contact">
     <h2>Contact Us</h2>
-    <div class="contact">
-      <a href="tel:6144486291">📞 (614) 448-6291</a>
-      <a href="tel:2028674220">📞 (202) 867-4220</a>
-      <a href="mailto:e.r.s.home.service@gmail.com">📧 e.r.s.home.service@gmail.com</a>
+    <div class="contact-info">
+      <p><strong>Primary Phone:</strong> (614) 448-6291</p>
+      <p><strong>Secondary Phone:</strong> (202) 867-4220</p>
+      <p><strong>Email:</strong> e.r.s.home.service@gmail.com</p>
+      <p><strong>Location:</strong> Columbus, Ohio (serving 50 miles around)</p>
     </div>
+  </section>
 
-    <form id="ersForm">
-      <h2 style="text-align:center; color:#1e3a8a;">Get a Free Quote</h2>
-      <input name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required /> <!-- ✅ Phone -->
-      <input name="service" id="serviceInput" placeholder="Service Type" required />
-      <input name="address" placeholder="Address" required />
-      <input name="zip" placeholder="Zip Code" required />
-      <textarea name="message" placeholder="Describe your project..." rows="4" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </main>
+  <section id="area">
+    <h2>Service Area</h2>
+    <p>We proudly serve Columbus, Dublin, Powell, Westerville, Gahanna, and surrounding areas within a 50-mile radius.</p>
+  </section>
+</div>
 
-  <footer>
-    © 2025 E.R.S. Home Service — All Rights Reserved.
-  </footer>
+<footer>
+  <p>&copy; 2025 E.R.S Home Service. All rights reserved.</p>
+</footer>
 
-  <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxPDydTGKjDVhbiMHY7uhSulSEI9pENnuXof0RARQ3kpCk3ompPFuNgm0fuIfI0S9v9/exec";
-
-    document.getElementById("ersForm").addEventListener("submit", e => {
-      e.preventDefault();
-      const formData = Object.fromEntries(new FormData(e.target));
-
-      fetch(scriptURL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(formData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if(data.result === "success") {
-          alert("✅ Message sent successfully!");
-          e.target.reset();
-        } else {
-          alert("❌ Error: " + data.message);
-        }
-      })
-      .catch(err => alert("❌ Error: " + err.message));
-    });
-
-    function fillService(service) {
-      document.getElementById("serviceInput").value = service;
-      document.getElementById("serviceInput").scrollIntoView({ behavior: "smooth" });
-    }
-  </script>
 </body>
 </html>
