@@ -24,11 +24,17 @@
       line-height: 1.6;
     }
 
+    header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
     header img {
-      width: 100%;
-      max-height: 350px;
-      object-fit: cover;
+      width: 250px; /* Adjust size as needed */
+      max-height: 150px;
+      object-fit: contain;
       display: block;
+      margin: 0 auto 10px auto;
     }
 
     .quote-banner {
@@ -180,12 +186,15 @@
     @media (max-width: 600px) {
       h1 { font-size: 1.8rem; }
       .service { width: 100%; }
+      header img { width: 200px; max-height: 120px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="E.R.S. Home Service logo banner" />
+    <!-- Logo Image -->
+    <img src="logo.png" alt="E.R.S. Home Service Logo" />
+    <!-- Clickable Free Quote Banner -->
     <div class="quote-banner" onclick="document.getElementById('ersForm').scrollIntoView({ behavior: 'smooth' });">
       Call or Text for a Free Quote: (614) 448-6291 &nbsp; | &nbsp; (202) 867-4220
     </div>
@@ -243,7 +252,9 @@
   </main>
 
   <!-- Floating Free Quote Button -->
-  <a href="#ersForm" class="floating-quote-btn">💬 Free Quote</a>
+  <a href="#ersForm" class="floating-quote-btn">
+    💬 Free Quote
+  </a>
 
   <footer>
     © 2025 E.R.S. Home Service — All Rights Reserved.
