@@ -101,6 +101,7 @@
       text-align: center;
     }
 
+    /* Contact Form */
     form {
       background: var(--gray);
       color: var(--text-dark);
@@ -134,7 +135,21 @@
       transition: 0.3s;
     }
 
-    form button:hover { background: #ea580c; }
+    form button:hover {
+      background: #ea580c;
+    }
+
+    #service-area {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    #service-area img {
+      border-radius: 10px;
+      margin-top: 10px;
+    }
 
     @media (max-width: 600px) {
       h1 { font-size: 1.8rem; }
@@ -171,12 +186,15 @@
       <div class="service" onclick="fillService('Tiling')">Tiling</div>
     </div>
 
-    <h2>Our Service Area</h2>
-    <p>We proudly serve <strong>Columbus, Ohio</strong>, and all surrounding areas within a <strong>50-mile radius</strong>.</p>
-    <a href="https://www.google.com/maps/search/Columbus,+Ohio/" target="_blank">
-      <img src="https://maps.googleapis.com/maps/api/staticmap?center=Columbus,Ohio&zoom=10&size=600x400&maptype=roadmap&markers=color:red%7Clabel:C%7CColumbus,Ohio" 
-        alt="Columbus, Ohio Service Area Map" style="width:100%; max-width:600px; border:0;">
-    </a>
+    <section id="service-area">
+      <h2>Our Service Area</h2>
+      <p>We proudly serve <strong>Columbus, Ohio</strong>, and all surrounding areas within a <strong>50-mile radius</strong>.</p>
+      <a href="https://www.google.com/maps/search/Columbus,+Ohio/" target="_blank">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Columbus,Ohio&zoom=10&size=600x400&maptype=roadmap&markers=color:red%7Clabel:C%7CColumbus,Ohio" 
+             alt="Columbus, Ohio Service Area Map" 
+             style="width:100%; max-width:600px; border:0;">
+      </a>
+    </section>
 
     <h2>Contact Us</h2>
     <div class="contact">
@@ -189,7 +207,7 @@
       <h2 style="text-align:center; color:#1e3a8a;">Get a Free Quote</h2>
       <input name="name" placeholder="Full Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required /> <!-- ✅ Added -->
       <input name="service" id="serviceInput" placeholder="Service Type" required />
       <input name="address" placeholder="Address" required />
       <input name="zip" placeholder="Zip Code" required />
@@ -216,7 +234,7 @@
       })
       .then(response => response.json())
       .then(data => {
-        if (data.result === "success") {
+        if(data.result === "success") {
           alert("✅ Message sent successfully!");
           e.target.reset();
         } else {
@@ -227,10 +245,8 @@
     });
 
     function fillService(service) {
-      const input = document.getElementById("serviceInput");
-      input.value = service;
-      input.scrollIntoView({ behavior: "smooth" });
-      input.focus();
+      document.getElementById("serviceInput").value = service;
+      document.getElementById("serviceInput").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </body>
