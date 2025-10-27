@@ -171,25 +171,6 @@
       height: auto;
     }
 
-    .floating-quote-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--orange);
-      color: #fff;
-      padding: 15px 20px;
-      border-radius: 50px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      z-index: 1000;
-      transition: 0.3s;
-    }
-
-    .floating-quote-btn:hover {
-      background: #ea580c;
-    }
-
     /* Reviews Section */
     #reviews div.review {
       background: rgba(255,255,255,0.1);
@@ -199,6 +180,39 @@
       text-align: left;
     }
     #reviews div.review strong { color: var(--yellow); }
+
+    /* Floating buttons */
+    .floating-quote-btn, .floating-review-btn {
+      position: fixed;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: 0.3s;
+    }
+
+    .floating-quote-btn {
+      bottom: 20px;
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .floating-quote-btn:hover {
+      background: #ea580c;
+    }
+
+    .floating-review-btn {
+      bottom: 80px; /* above the Free Quote button */
+      background: var(--yellow);
+      color: var(--text-dark);
+    }
+
+    .floating-review-btn:hover {
+      background: #eab308;
+    }
 
     @media (max-width: 768px) {
       h1 { font-size: 1.8rem; }
@@ -277,9 +291,8 @@
       <h2>Customer Reviews</h2>
       <form id="reviewForm">
         <input type="text" name="name" placeholder="Your Name" required />
-
         <label for="rating" style="color:var(--text-dark); font-weight:bold;">Rating:</label>
-        <select name="rating" id="rating" required style="width:100%; padding:10px; margin-bottom:12px; border-radius:5px; border:1px solid #ccc;">
+        <select name="rating" id="rating" required>
           <option value="">Select Rating</option>
           <option value="5">★★★★★ 5 Stars</option>
           <option value="4">★★★★ 4 Stars</option>
@@ -287,16 +300,16 @@
           <option value="2">★★ 2 Stars</option>
           <option value="1">★ 1 Star</option>
         </select>
-
         <textarea name="review" placeholder="Write your review..." rows="4" required></textarea>
         <button type="submit">Submit Review</button>
       </form>
       <div id="reviewList"></div>
     </section>
-
   </main>
 
+  <!-- Floating Buttons -->
   <a href="#ersForm" class="floating-quote-btn">💬 Free Quote</a>
+  <a href="#reviews" class="floating-review-btn">⭐ Reviews</a>
 
   <footer>
     © 2025 E.R.S. Home Service — All Rights Reserved.
@@ -326,10 +339,9 @@
       .catch(err => alert("❌ Error: " + err.message));
     });
 
-    // Fill service input
     function fillService(service) {
       document.getElementById("serviceInput").value = service;
-      document.getElementById("serviceInput").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("serviceInput").scrollIntoView({ behavior: 'smooth' });
     }
 
     // Review Form
