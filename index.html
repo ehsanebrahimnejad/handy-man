@@ -37,6 +37,8 @@
       object-fit: contain;
       display: block;
       margin: 0 auto 10px auto;
+      border-radius: 10px;
+      border: 2px solid var(--yellow);
     }
 
     .quote-banner {
@@ -129,7 +131,8 @@
     }
 
     form input,
-    form textarea {
+    form textarea,
+    form select {
       width: 100%;
       padding: 10px;
       margin: 8px 0 12px;
@@ -187,6 +190,16 @@
       background: #ea580c;
     }
 
+    /* Reviews Section */
+    #reviews div.review {
+      background: rgba(255,255,255,0.1);
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      text-align: left;
+    }
+    #reviews div.review strong { color: var(--yellow); }
+
     @media (max-width: 768px) {
       h1 { font-size: 1.8rem; }
       h2 { font-size: 1.3rem; }
@@ -204,10 +217,7 @@
 </head>
 <body>
   <header>
-    <!-- Your Logo -->
     <img src="https://i.postimg.cc/90Jj6Hnv/Screenshot-20251004-104450-Messages-2-1.jpg" alt="E.R.S. Home Service Logo" loading="lazy"/>
-
-    <!-- Clickable Free Quote Banner -->
     <div class="quote-banner" onclick="document.getElementById('ersForm').scrollIntoView({ behavior: 'smooth' });">
       Call or Text for a Free Quote: (614) 448-6291 &nbsp; | &nbsp; (202) 867-4220
     </div>
@@ -261,11 +271,32 @@
       <textarea name="message" placeholder="Describe your project..." rows="4" required></textarea>
       <button type="submit">Send Message</button>
     </form>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews">
+      <h2>Customer Reviews</h2>
+      <form id="reviewForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+
+        <label for="rating" style="color:var(--text-dark); font-weight:bold;">Rating:</label>
+        <select name="rating" id="rating" required style="width:100%; padding:10px; margin-bottom:12px; border-radius:5px; border:1px solid #ccc;">
+          <option value="">Select Rating</option>
+          <option value="5">★★★★★ 5 Stars</option>
+          <option value="4">★★★★ 4 Stars</option>
+          <option value="3">★★★ 3 Stars</option>
+          <option value="2">★★ 2 Stars</option>
+          <option value="1">★ 1 Star</option>
+        </select>
+
+        <textarea name="review" placeholder="Write your review..." rows="4" required></textarea>
+        <button type="submit">Submit Review</button>
+      </form>
+      <div id="reviewList"></div>
+    </section>
+
   </main>
 
-  <a href="#ersForm" class="floating-quote-btn">
-    💬 Free Quote
-  </a>
+  <a href="#ersForm" class="floating-quote-btn">💬 Free Quote</a>
 
   <footer>
     © 2025 E.R.S. Home Service — All Rights Reserved.
@@ -274,10 +305,10 @@
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbxPDydTGKjDVhbiMHY7uhSulSEI9pENnuXof0RARQ3kpCk3ompPFuNgm0fuIfI0S9v9/exec";
 
+    // Quote Form
     document.getElementById("ersForm").addEventListener("submit", e => {
       e.preventDefault();
       const formData = Object.fromEntries(new FormData(e.target));
-
       fetch(scriptURL, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -295,10 +326,39 @@
       .catch(err => alert("❌ Error: " + err.message));
     });
 
+    // Fill service input
     function fillService(service) {
       document.getElementById("serviceInput").value = service;
       document.getElementById("serviceInput").scrollIntoView({ behavior: "smooth" });
     }
+
+    // Review Form
+    const reviewForm = document.getElementById("reviewForm");
+    const reviewList = document.getElementById("reviewList");
+
+    reviewForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const formData = new FormData(reviewForm);
+      const name = formData.get("name");
+      const review = formData.get("review");
+      const rating = formData.get("rating");
+
+      const reviewDiv = document.createElement("div");
+      reviewDiv.className = "review";
+      reviewDiv.innerHTML = `
+        <strong>${name}</strong> <span style="color:var(--yellow);">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</span>
+        <p>${review}</p>
+      `;
+      reviewList.prepend(reviewDiv);
+      reviewForm.reset();
+
+      // Send review to Google Apps Script
+      fetch(scriptURL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ name, review, rating, type: "review" })
+      }).catch(err => console.error("Review submission error:", err));
+    });
   </script>
 </body>
 </html>
