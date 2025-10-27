@@ -27,12 +27,13 @@
 
     header {
       text-align: center;
-      padding: 20px 0;
+      padding: 20px 10px;
     }
 
     header img {
-      width: 250px;
-      max-height: 150px;
+      width: 80%;
+      max-width: 300px;
+      height: auto;
       object-fit: contain;
       display: block;
       margin: 0 auto 10px auto;
@@ -44,7 +45,7 @@
       text-align: center;
       padding: 14px 16px;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
       transition: 0.3s;
     }
@@ -56,34 +57,36 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 32px 16px;
+      padding: 20px 16px;
       text-align: center;
     }
 
-    h1 { color: var(--white); font-size: 2.2rem; margin-bottom: 0.5em; }
+    h1 { color: var(--white); font-size: 2rem; margin-bottom: 0.5em; }
 
-    h2 { color: var(--yellow); font-size: 1.6rem; margin: 1.5em 0 0.7em; }
+    h2 { color: var(--yellow); font-size: 1.5rem; margin: 1.5em 0 0.7em; }
 
     p { font-size: 1rem; color: var(--white); margin-bottom: 1em; }
 
-    .highlight { color: var(--yellow); font-weight: bold; font-size: 2rem; margin: 20px 0; }
+    .highlight { color: var(--yellow); font-weight: bold; font-size: 1.8rem; margin: 20px 0; }
 
     .services {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
-      margin: 30px 0;
+      gap: 10px;
+      margin: 20px 0;
     }
 
     .service {
       cursor: pointer;
-      padding: 15px 30px;
+      padding: 12px 20px;
       background: var(--yellow);
       color: var(--text-dark);
       font-weight: bold;
-      border-radius: 10px;
+      border-radius: 8px;
       transition: 0.3s ease;
+      min-width: 120px;
+      text-align: center;
     }
 
     .service:hover {
@@ -119,9 +122,9 @@
       color: var(--text-dark);
       max-width: 500px;
       margin: 2em auto;
-      padding: 25px;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       text-align: left;
     }
 
@@ -129,7 +132,7 @@
     form textarea {
       width: 100%;
       padding: 10px;
-      margin: 8px 0 15px;
+      margin: 8px 0 12px;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 1rem;
@@ -153,14 +156,16 @@
 
     #service-area {
       background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
+      padding: 20px;
       border-radius: 10px;
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     #service-area img {
       border-radius: 10px;
       margin-top: 10px;
+      width: 100%;
+      height: auto;
     }
 
     .floating-quote-btn {
@@ -169,7 +174,7 @@
       right: 20px;
       background: var(--orange);
       color: #fff;
-      padding: 15px 25px;
+      padding: 15px 20px;
       border-radius: 50px;
       font-weight: bold;
       text-decoration: none;
@@ -182,17 +187,25 @@
       background: #ea580c;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      .service { width: 45%; margin-bottom: 10px; }
+      header img { width: 70%; max-width: 250px; }
+    }
+
+    @media (max-width: 480px) {
       .service { width: 100%; }
-      header img { width: 200px; max-height: 120px; }
+      header img { width: 90%; max-width: 200px; }
+      .quote-banner { font-size: 14px; }
+      form { padding: 15px; }
     }
   </style>
 </head>
 <body>
   <header>
     <!-- Your Logo -->
-    <img src="https://i.postimg.cc/90Jj6Hnv/Screenshot-20251004-104450-Messages-2-1.jpg" alt="E.R.S. Home Service Logo" />
+    <img src="https://i.postimg.cc/90Jj6Hnv/Screenshot-20251004-104450-Messages-2-1.jpg" alt="E.R.S. Home Service Logo" loading="lazy"/>
 
     <!-- Clickable Free Quote Banner -->
     <div class="quote-banner" onclick="document.getElementById('ersForm').scrollIntoView({ behavior: 'smooth' });">
@@ -226,8 +239,7 @@
       <p>We proudly serve <strong>Columbus, Ohio</strong>, and all surrounding areas within a <strong>50-mile radius</strong>.</p>
       <a href="https://www.google.com/maps/search/Columbus,+Ohio/" target="_blank">
         <img src="https://maps.googleapis.com/maps/api/staticmap?center=Columbus,Ohio&zoom=10&size=600x400&maptype=roadmap&markers=color:red%7Clabel:C%7CColumbus,Ohio" 
-             alt="Columbus, Ohio Service Area Map" 
-             style="width:100%; max-width:600px; border:0;">
+             alt="Columbus, Ohio Service Area Map">
       </a>
     </section>
 
