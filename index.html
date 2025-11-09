@@ -1,45 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Video Section -->
-<section id="promo-video" style="text-align:center; padding: 20px; margin: 20px 0; border-radius: 10px; background: rgba(0,0,0,0.1);">
-  <h2 style="color:#facc15; margin-bottom: 10px;">Watch Our Video Ad</h2>
-  <video 
-    id="promoVideo"
-    width="100%" 
-    max-width="800px"
-    autoplay 
-    muted 
-    loop 
-    playsinline 
-    controls
-    style="border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-    <source src="videos/Video_Prompt_and_Generation.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <br><br>
-  <button id="playPauseBtn" style="padding:10px 15px; font-size:16px; border-radius:5px; cursor:pointer;">
-    Pause Video
-  </button>
-</section>
-
-<script>
-  const video = document.getElementById('promoVideo');
-  const btn = document.getElementById('playPauseBtn');
-
-  // Try to autoplay (some browsers may require user gesture)
-  video.play().catch(err => console.log('Autoplay prevented', err));
-
-  btn.addEventListener('click', () => {
-    if(video.paused){
-      video.play();
-      btn.textContent = "Pause Video";
-    } else {
-      video.pause();
-      btn.textContent = "Play Video";
-    }
-  });
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E.R.S Home Service — Your Trusted Local Handyman</title>
@@ -253,37 +214,6 @@
       background: #eab308;
     }
 
-    /* Background video container */
-    .video-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .video-background video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .video-controls {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 1001;
-      background: rgba(0,0,0,0.5);
-      border: none;
-      color: white;
-      font-size: 16px;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
     @media (max-width: 768px) {
       h1 { font-size: 1.8rem; }
       h2 { font-size: 1.3rem; }
@@ -300,16 +230,6 @@
   </style>
 </head>
 <body>
-
-  <!-- ✅ Background Video -->
-  <div class="video-background">
-    <video id="bgVideo" autoplay loop muted playsinline>
-      <source src="videos/Video_Prompt_and_Generation.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <button class="video-controls" id="videoBtn">Pause Video</button>
-  </div>
-
   <header>
     <img src="https://i.postimg.cc/90Jj6Hnv/Screenshot-20251004-104450-Messages-2-1.jpg" alt="E.R.S. Home Service Logo" loading="lazy"/>
     <div class="quote-banner" onclick="document.getElementById('ersForm').scrollIntoView({ behavior: 'smooth' });">
@@ -319,6 +239,25 @@
 
   <main class="container">
     <div class="highlight">YOU BREAK IT, WE FIX IT</div>
+
+    <!-- ✅ Visible Video Section -->
+    <section id="promo-video" style="text-align:center; padding: 20px; margin: 20px 0; border-radius: 10px; background: rgba(0,0,0,0.1);">
+      <h2 style="color:#facc15; margin-bottom: 10px;">Watch Our Video Ad</h2>
+      <video 
+        id="promoVideo"
+        width="100%" 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        controls
+        style="max-width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        <source src="videos/Video_Prompt_and_Generation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <br><br>
+      <button id="playPauseBtn" style="padding:10px 15px; font-size:16px; border-radius:5px; cursor:pointer;">Pause Video</button>
+    </section>
 
     <h1>Your Trusted Local Handyman</h1>
     <p>
@@ -366,7 +305,6 @@
       <button type="submit">Send Message</button>
     </form>
 
-    <!-- Customer Reviews Section -->
     <section id="reviews">
       <h2>Customer Reviews</h2>
       <form id="reviewForm">
@@ -452,9 +390,10 @@
       }).catch(err => console.error("Review submission error:", err));
     });
 
-    // Video Controls
-    const video = document.getElementById('bgVideo');
-    const btn = document.getElementById('videoBtn');
+    // Video Play/Pause Button
+    const video = document.getElementById('promoVideo');
+    const btn = document.getElementById('playPauseBtn');
+    video.play().catch(err => console.log('Autoplay prevented', err));
 
     btn.addEventListener('click', () => {
       if(video.paused){
