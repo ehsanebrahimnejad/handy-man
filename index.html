@@ -171,16 +171,6 @@
       height: auto;
     }
 
-    /* Reviews Section */
-    #reviews div.review {
-      background: rgba(255,255,255,0.1);
-      padding: 12px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      text-align: left;
-    }
-    #reviews div.review strong { color: var(--yellow); }
-
     /* Floating buttons */
     .floating-quote-btn, .floating-review-btn {
       position: fixed;
@@ -226,6 +216,34 @@
       header img { width: 90%; max-width: 200px; }
       .quote-banner { font-size: 14px; }
       form { padding: 15px; }
+    }
+
+    /* Professional Review Section Styles */
+    #reviewList .review-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: #111827;
+    }
+
+    #reviewList .review-card .reviewer {
+      font-weight: 700;
+      color: #1e3a8a;
+      font-size: 1.1rem;
+    }
+
+    #reviewList .review-card .rating {
+      color: #facc15;
+      font-size: 1rem;
+    }
+
+    #reviewList .review-card .review-text {
+      font-size: 1rem;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -286,11 +304,18 @@
       <button type="submit">Send Message</button>
     </form>
 
-    <section id="reviews">
-      <h2>Customer Reviews</h2>
-      <form id="reviewForm">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <label for="rating" style="color:var(--text-dark); font-weight:bold;">Rating:</label>
+    <!-- Professional Review Section -->
+    <section id="reviews" style="padding: 40px 20px; background: rgba(0,0,0,0.05); border-radius: 12px; max-width: 900px; margin: 40px auto;">
+      <h2 style="text-align:center; color:#1e3a8a; font-size:2rem; margin-bottom: 30px;">What Our Customers Say</h2>
+
+      <!-- Review List -->
+      <div id="reviewList" style="display:flex; flex-direction:column; gap:20px;"></div>
+
+      <!-- Review Submission Form -->
+      <form id="reviewForm" style="background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-top:30px;">
+        <h3 style="color:#1e3a8a; margin-bottom:15px;">Submit Your Review</h3>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <label for="rating" style="font-weight:bold; display:block; margin-bottom:5px;">Rating:</label>
         <select name="rating" id="rating" required>
           <option value="">Select Rating</option>
           <option value="5">★★★★★ 5 Stars</option>
@@ -302,7 +327,6 @@
         <textarea name="review" placeholder="Write your review..." rows="4" required></textarea>
         <button type="submit">Submit Review</button>
       </form>
-      <div id="reviewList"></div>
     </section>
   </main>
 
@@ -343,7 +367,7 @@
       document.getElementById("serviceInput").scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Review Form
+    // Professional Review Form Script
     const reviewForm = document.getElementById("reviewForm");
     const reviewList = document.getElementById("reviewList");
 
@@ -355,10 +379,11 @@
       const rating = formData.get("rating");
 
       const reviewDiv = document.createElement("div");
-      reviewDiv.className = "review";
+      reviewDiv.className = "review-card";
       reviewDiv.innerHTML = `
-        <strong>${name}</strong> <span style="color:var(--yellow);">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</span>
-        <p>${review}</p>
+        <div class="reviewer">${name}</div>
+        <div class="rating">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</div>
+        <div class="review-text">${review}</div>
       `;
       reviewList.prepend(reviewDiv);
       reviewForm.reset();
