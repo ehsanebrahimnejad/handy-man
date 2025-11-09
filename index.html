@@ -13,6 +13,8 @@
       --white: #ffffff;
       --gray: #f9fafb;
       --text-dark: #111827;
+      --card-bg: #fff;
+      --card-shadow: rgba(0,0,0,0.1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,10 +27,7 @@
       scroll-behavior: smooth;
     }
 
-    header {
-      text-align: center;
-      padding: 20px 10px;
-    }
+    header { text-align: center; padding: 20px 10px; }
 
     header img {
       width: 80%;
@@ -52,9 +51,7 @@
       transition: 0.3s;
     }
 
-    .quote-banner:hover {
-      background: #ea580c;
-    }
+    .quote-banner:hover { background: #ea580c; }
 
     .container {
       max-width: 1100px;
@@ -91,15 +88,9 @@
       text-align: center;
     }
 
-    .service:hover {
-      background: #eab308;
-      transform: translateY(-3px);
-    }
+    .service:hover { background: #eab308; transform: translateY(-3px); }
 
-    .contact {
-      margin-top: 2em;
-      text-align: center;
-    }
+    .contact { margin-top: 2em; text-align: center; }
 
     .contact a {
       display: block;
@@ -153,9 +144,7 @@
       transition: 0.3s;
     }
 
-    form button:hover {
-      background: #ea580c;
-    }
+    form button:hover { background: #ea580c; }
 
     #service-area {
       background: rgba(255, 255, 255, 0.1);
@@ -184,25 +173,11 @@
       transition: 0.3s;
     }
 
-    .floating-quote-btn {
-      bottom: 20px;
-      background: var(--orange);
-      color: #fff;
-    }
+    .floating-quote-btn { bottom: 20px; background: var(--orange); color: #fff; }
+    .floating-quote-btn:hover { background: #ea580c; }
 
-    .floating-quote-btn:hover {
-      background: #ea580c;
-    }
-
-    .floating-review-btn {
-      bottom: 80px; /* above the Free Quote button */
-      background: var(--yellow);
-      color: var(--text-dark);
-    }
-
-    .floating-review-btn:hover {
-      background: #eab308;
-    }
+    .floating-review-btn { bottom: 80px; background: var(--yellow); color: var(--text-dark); }
+    .floating-review-btn:hover { background: #eab308; }
 
     @media (max-width: 768px) {
       h1 { font-size: 1.8rem; }
@@ -218,32 +193,38 @@
       form { padding: 15px; }
     }
 
-    /* Professional Review Section Styles */
+    /* Google-style Review Cards */
     #reviewList .review-card {
-      background: #fff;
-      padding: 20px;
+      background: var(--card-bg);
+      padding: 18px 20px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      box-shadow: 0 2px 6px var(--card-shadow);
+      margin-bottom: 15px;
+      text-align: left;
       color: #111827;
     }
 
     #reviewList .review-card .reviewer {
       font-weight: 700;
-      color: #1e3a8a;
-      font-size: 1.1rem;
+      color: #1a73e8;
+      font-size: 1rem;
+    }
+
+    #reviewList .review-card .date {
+      font-size: 0.85rem;
+      color: #555;
+      margin-left: 5px;
     }
 
     #reviewList .review-card .rating {
-      color: #facc15;
+      color: #fbbc04;
       font-size: 1rem;
+      margin: 5px 0;
     }
 
     #reviewList .review-card .review-text {
-      font-size: 1rem;
-      line-height: 1.5;
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
   </style>
 </head>
@@ -259,11 +240,7 @@
     <div class="highlight">YOU BREAK IT, WE FIX IT</div>
 
     <h1>Your Trusted Local Handyman</h1>
-    <p>
-      At <strong>E.R.S. Home Service</strong>, we provide reliable, affordable,
-      and professional handyman services for homes and businesses throughout
-      <strong>Columbus, Dublin, Powell, and Westerville</strong>.
-    </p>
+    <p>At <strong>E.R.S. Home Service</strong>, we provide reliable, affordable, and professional handyman services for homes and businesses throughout <strong>Columbus, Dublin, Powell, and Westerville</strong>.</p>
 
     <h2>Our Services</h2>
     <div class="services">
@@ -280,8 +257,7 @@
       <h2>Our Service Area</h2>
       <p>We proudly serve <strong>Columbus, Ohio</strong>, and all surrounding areas within a <strong>50-mile radius</strong>.</p>
       <a href="https://www.google.com/maps/search/Columbus,+Ohio/" target="_blank">
-        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Columbus,Ohio&zoom=10&size=600x400&maptype=roadmap&markers=color:red%7Clabel:C%7CColumbus,Ohio" 
-             alt="Columbus, Ohio Service Area Map">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Columbus,Ohio&zoom=10&size=600x400&maptype=roadmap&markers=color:red%7Clabel:C%7CColumbus,Ohio" alt="Columbus, Ohio Service Area Map">
       </a>
     </section>
 
@@ -304,14 +280,11 @@
       <button type="submit">Send Message</button>
     </form>
 
-    <!-- Professional Review Section -->
-    <section id="reviews" style="padding: 40px 20px; background: rgba(0,0,0,0.05); border-radius: 12px; max-width: 900px; margin: 40px auto;">
-      <h2 style="text-align:center; color:#1e3a8a; font-size:2rem; margin-bottom: 30px;">What Our Customers Say</h2>
+    <!-- Google-style Reviews Section -->
+    <section id="reviews" style="padding: 40px 20px; max-width:900px; margin:40px auto; background: rgba(255,255,255,0.05); border-radius:12px;">
+      <h2 style="text-align:center; color:#1e3a8a; font-size:2rem; margin-bottom:30px;">Customer Reviews</h2>
+      <div id="reviewList"></div>
 
-      <!-- Review List -->
-      <div id="reviewList" style="display:flex; flex-direction:column; gap:20px;"></div>
-
-      <!-- Review Submission Form -->
       <form id="reviewForm" style="background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-top:30px;">
         <h3 style="color:#1e3a8a; margin-bottom:15px;">Submit Your Review</h3>
         <input type="text" name="name" placeholder="Your Name" required>
@@ -334,40 +307,24 @@
   <a href="#ersForm" class="floating-quote-btn">💬 Free Quote</a>
   <a href="#reviews" class="floating-review-btn">⭐ Reviews</a>
 
-  <footer>
-    © 2025 E.R.S. Home Service — All Rights Reserved.
-  </footer>
+  <footer>© 2025 E.R.S. Home Service — All Rights Reserved.</footer>
 
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbxPDydTGKjDVhbiMHY7uhSulSEI9pENnuXof0RARQ3kpCk3ompPFuNgm0fuIfI0S9v9/exec";
 
-    // Quote Form
     document.getElementById("ersForm").addEventListener("submit", e => {
       e.preventDefault();
       const formData = Object.fromEntries(new FormData(e.target));
-      fetch(scriptURL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(formData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if(data.result === "success") {
-          alert("✅ Message sent successfully!");
-          e.target.reset();
-        } else {
-          alert("❌ Error: " + data.message);
-        }
-      })
-      .catch(err => alert("❌ Error: " + err.message));
+      fetch(scriptURL, { method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(formData)})
+      .then(r=>r.json()).then(d=>{if(d.result==="success"){alert("✅ Message sent!"); e.target.reset();} else{alert("❌ "+d.message);}})
+      .catch(err=>alert("❌ "+err.message));
     });
 
     function fillService(service) {
       document.getElementById("serviceInput").value = service;
-      document.getElementById("serviceInput").scrollIntoView({ behavior: 'smooth' });
+      document.getElementById("serviceInput").scrollIntoView({behavior:'smooth'});
     }
 
-    // Professional Review Form Script
     const reviewForm = document.getElementById("reviewForm");
     const reviewList = document.getElementById("reviewList");
 
@@ -377,22 +334,20 @@
       const name = formData.get("name");
       const review = formData.get("review");
       const rating = formData.get("rating");
+      const date = new Date().toLocaleDateString();
 
       const reviewDiv = document.createElement("div");
       reviewDiv.className = "review-card";
       reviewDiv.innerHTML = `
-        <div class="reviewer">${name}</div>
+        <div><span class="reviewer">${name}</span> <span class="date">${date}</span></div>
         <div class="rating">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</div>
         <div class="review-text">${review}</div>
       `;
       reviewList.prepend(reviewDiv);
       reviewForm.reset();
 
-      fetch(scriptURL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ name, review, rating, type: "review" })
-      }).catch(err => console.error("Review submission error:", err));
+      fetch(scriptURL, { method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify({name, review, rating, date, type:"review"}) })
+      .catch(err=>console.error("Review error:",err));
     });
   </script>
 </body>
