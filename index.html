@@ -240,25 +240,6 @@
   <main class="container">
     <div class="highlight">YOU BREAK IT, WE FIX IT</div>
 
-    <!-- ✅ Visible Video Section -->
-    <section id="promo-video" style="text-align:center; padding: 20px; margin: 20px 0; border-radius: 10px; background: rgba(0,0,0,0.1);">
-      <h2 style="color:#facc15; margin-bottom: 10px;">Watch Our Video Ad</h2>
-      <video 
-        id="promoVideo"
-        width="100%" 
-        autoplay 
-        muted 
-        loop 
-        playsinline 
-        controls
-        style="max-width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-        <source src="videos/Video_Prompt_and_Generation.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <br><br>
-      <button id="playPauseBtn" style="padding:10px 15px; font-size:16px; border-radius:5px; cursor:pointer;">Pause Video</button>
-    </section>
-
     <h1>Your Trusted Local Handyman</h1>
     <p>
       At <strong>E.R.S. Home Service</strong>, we provide reliable, affordable,
@@ -382,27 +363,11 @@
       reviewList.prepend(reviewDiv);
       reviewForm.reset();
 
-      // Send review to Google Apps Script
       fetch(scriptURL, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({ name, review, rating, type: "review" })
       }).catch(err => console.error("Review submission error:", err));
-    });
-
-    // Video Play/Pause Button
-    const video = document.getElementById('promoVideo');
-    const btn = document.getElementById('playPauseBtn');
-    video.play().catch(err => console.log('Autoplay prevented', err));
-
-    btn.addEventListener('click', () => {
-      if(video.paused){
-        video.play();
-        btn.textContent = "Pause Video";
-      } else {
-        video.pause();
-        btn.textContent = "Play Video";
-      }
     });
   </script>
 </body>
