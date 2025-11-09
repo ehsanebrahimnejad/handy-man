@@ -1,6 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Video Section -->
+<section id="promo-video" style="text-align:center; padding: 20px; margin: 20px 0; border-radius: 10px; background: rgba(0,0,0,0.1);">
+  <h2 style="color:#facc15; margin-bottom: 10px;">Watch Our Video Ad</h2>
+  <video 
+    id="promoVideo"
+    width="100%" 
+    max-width="800px"
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    controls
+    style="border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+    <source src="videos/Video_Prompt_and_Generation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <br><br>
+  <button id="playPauseBtn" style="padding:10px 15px; font-size:16px; border-radius:5px; cursor:pointer;">
+    Pause Video
+  </button>
+</section>
+
+<script>
+  const video = document.getElementById('promoVideo');
+  const btn = document.getElementById('playPauseBtn');
+
+  // Try to autoplay (some browsers may require user gesture)
+  video.play().catch(err => console.log('Autoplay prevented', err));
+
+  btn.addEventListener('click', () => {
+    if(video.paused){
+      video.play();
+      btn.textContent = "Pause Video";
+    } else {
+      video.pause();
+      btn.textContent = "Play Video";
+    }
+  });
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E.R.S Home Service — Your Trusted Local Handyman</title>
