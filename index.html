@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ERS Home Service provides HVAC, plumbing, electrical, painting, drywall, carpentry and handyman services in Columbus, Ohio.">
+  <meta name="theme-color" content="#07182d">
+  <title>ERS Home Service | Columbus, Ohio</title>
+
+  <style>
+    :root {
+      --navy:#07182d;
+      --navy2:#102f53;
+      --gold:#d6a72a;
+      --gold2:#f0cb69;
+      --white:#fff;
+      --soft:#f5f7fa;
+      --text:#182235;
+      --muted:#687386;
+      --line:#e5e8ed;
+      --shadow:0 18px 45px rgba(7,24,45,.13);
+    }
+
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img, video, iframe { display:block; max-width:100%; }
+    a { color:inherit; text-decoration:none; }
+    button, input, textarea, select { font:inherit; }
+    .container { width:min(92%,1180px); margin:auto; }
+    .section { padding:76px 0; }
+    .soft { background:var(--soft); }
+
+    .topbar {
+      background:#04101e;
+      color:#fff;
+      font-size:.9rem;
+    }
+    .topbar-inner {
+      min-height:42px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+    }
+    .topbar a { color:var(--gold2); font-weight:800; }
+
+    header {
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      box-shadow:0 4px 14px rgba(7,24,45,.07);
+    }
+    .nav {
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand img {
+      width:165px;
+      height:64px;
+      object-fit:contain;
+      border-radius:8px;
+      border:2px solid var(--gold);
+      background:#07182d;
+    }
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:20px;
+      font-weight:700;
+      color:#24334b;
+    }
+    .nav-links a:hover { color:var(--gold); }
+    .menu-btn {
+      display:none;
+      border:0;
+      background:none;
+      color:var(--navy);
+      font-size:1.8rem;
+      min-width:44px;
+      min-height:44px;
+      cursor:pointer;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:13px 22px;
+      border-radius:10px;
+      border:2px solid transparent;
+      font-weight:900;
+      cursor:pointer;
+      transition:.22s ease;
+    }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-gold { background:var(--gold); color:var(--navy); }
+    .btn-gold:hover { background:var(--gold2); }
+    .btn-outline { color:#fff; border-color:#fff; }
+    .btn-navy { background:var(--navy); color:#fff; }
+
+    .hero {
+      background:linear-gradient(135deg,#041323,var(--navy));
+      color:#fff;
+      padding:62px 0;
+    }
+    .hero-grid {
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      align-items:center;
+      gap:42px;
+    }
+    .rating {
+      color:var(--gold2);
+      font-weight:900;
+      letter-spacing:3px;
+      margin-bottom:14px;
+    }
+    .rating span {
+      color:#fff;
+      letter-spacing:0;
+      font-size:.92rem;
+      margin-left:9px;
+    }
+    .eyebrow {
+      display:inline-block;
+      color:var(--gold2);
+      font-size:.8rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:10px;
+    }
+    .eyebrow.dark { color:var(--navy2); }
+    h1,h2,h3 { line-height:1.15; color:var(--navy); }
+    h1 {
+      color:#fff;
+      font-size:clamp(2.6rem,5vw,4.8rem);
+      letter-spacing:-.045em;
+      margin-bottom:18px;
+    }
+    h1 span { color:var(--gold); }
+    .hero-text {
+      color:rgba(255,255,255,.82);
+      font-size:1.1rem;
+      margin-bottom:26px;
+    }
+    .hero-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .trust-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:13px 22px;
+      margin-top:25px;
+      font-weight:700;
+    }
+    .trust-row span::before {
+      content:"✓";
+      color:var(--gold2);
+      margin-right:7px;
+    }
+
+    .service-slider {
+      position:relative;
+      width:100%;
+      max-width:430px;
+      margin:auto;
+      border:4px solid var(--gold);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 20px 45px rgba(0,0,0,.32);
+      background:#06172a;
+    }
+    .service-slides {
+      position:relative;
+      aspect-ratio:5/4;
+    }
+    .service-slide {
+      position:absolute;
+      inset:0;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity .7s ease, visibility .7s ease;
+    }
+    .service-slide.active {
+      opacity:1;
+      visibility:visible;
+    }
+    .service-slide img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .service-slide figcaption {
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      padding:50px 22px 24px;
+      background:linear-gradient(transparent,rgba(4,16,30,.96));
+      color:#fff;
+    }
+    .service-slide figcaption strong {
+      display:block;
+      color:var(--gold2);
+      font-size:1.35rem;
+    }
+    .service-slide figcaption span {
+      color:rgba(255,255,255,.82);
+      font-size:.92rem;
+    }
+    .slider-dots {
+      position:absolute;
+      right:14px;
+      top:14px;
+      display:flex;
+      gap:7px;
+      z-index:3;
+    }
+    .slider-dots button {
+      width:11px;
+      height:11px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.85);
+      background:rgba(7,24,45,.55);
+      padding:0;
+      cursor:pointer;
+    }
+    .slider-dots button.active {
+      background:var(--gold);
+      border-color:var(--gold);
+    }
+
+    .estimate-strip {
+      background:var(--gold);
+      padding:22px 0;
+    }
+    .estimate-inner {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+    .estimate-inner strong { font-size:1.22rem; }
+    .estimate-inner p { color:#493a17; }
+
+    .section-heading {
+      max-width:760px;
+      margin:0 auto 40px;
+      text-align:center;
+    }
+    .section-heading h2 {
+      font-size:clamp(2rem,4vw,3rem);
+      margin-bottom:12px;
+    }
+    .section-heading p { color:var(--muted); }
+
+    .intro-grid,
+    .why-grid,
+    .area-grid,
+    .contact-grid,
+    .google-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:42px;
+      align-items:center;
+    }
+
+    .video-card {
+      overflow:hidden;
+      border-radius:18px;
+      border:4px solid var(--gold);
+      box-shadow:var(--shadow);
+      background:#000;
+    }
+    .video-card video {
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:contain;
+      background:#000;
+    }
+    .video-card p {
+      background:var(--navy);
+      color:#fff;
+      text-align:center;
+      padding:11px;
+    }
+    .intro-copy h2 {
+      font-size:clamp(2rem,4vw,3rem);
+      margin-bottom:14px;
+    }
+    .intro-copy > p { color:var(--muted); }
+    .steps {
+      display:grid;
+      gap:14px;
+      margin-top:22px;
+    }
+    .step {
+      display:flex;
+      gap:12px;
+    }
+    .step > span {
+      width:40px;
+      height:40px;
+      min-width:40px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:#f7f3e9;
+      border:1px solid #eadcb2;
+      color:var(--gold);
+      font-weight:900;
+    }
+    .step p { color:var(--muted); font-size:.92rem; }
+
+    .services-grid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .service-card {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:23px;
+      box-shadow:0 7px 20px rgba(7,24,45,.05);
+      cursor:pointer;
+      transition:.25s ease;
+    }
+    .service-card:hover {
+      transform:translateY(-6px);
+      border-color:var(--gold);
+      box-shadow:var(--shadow);
+    }
+    .icon {
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:var(--navy);
+      color:var(--gold2);
+      font-size:1.7rem;
+      margin-bottom:17px;
+    }
+    .service-card h3 { margin-bottom:8px; }
+    .service-card p { color:var(--muted); font-size:.92rem; min-height:70px; }
+    .service-card span {
+      display:inline-block;
+      margin-top:13px;
+      color:var(--navy2);
+      font-weight:900;
+      font-size:.9rem;
+    }
+
+    .why-panel {
+      background:var(--navy);
+      color:#fff;
+      border-radius:18px;
+      padding:40px;
+      box-shadow:var(--shadow);
+    }
+    .why-panel h2 {
+      color:#fff;
+      font-size:clamp(2rem,4vw,3rem);
+      margin-bottom:14px;
+    }
+    .why-panel > p { color:rgba(255,255,255,.72); }
+    .why-list {
+      display:grid;
+      gap:13px;
+      margin-top:23px;
+    }
+    .why-list > div {
+      display:flex;
+      gap:12px;
+      padding:14px;
+      border-radius:11px;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.05);
+    }
+    .why-list span {
+      width:28px;
+      height:28px;
+      min-width:28px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:var(--gold);
+      color:var(--navy);
+      font-weight:900;
+    }
+    .why-list p { color:rgba(255,255,255,.72); }
+    .why-list strong { color:#fff; }
+
+    .business-card {
+      overflow:hidden;
+      border-radius:18px;
+      border:4px solid var(--gold);
+      box-shadow:var(--shadow);
+      background:var(--navy);
+    }
+    .business-card img {
+      width:100%;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .area-card,
+    .ready-card {
+      border-radius:18px;
+      padding:33px;
+      box-shadow:var(--shadow);
+    }
+    .area-card {
+      background:#fff;
+      border:1px solid var(--line);
+    }
+    .area-card h2 { font-size:2rem; margin-bottom:11px; }
+    .area-card > p { color:var(--muted); margin-bottom:18px; }
+    .area-tags {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+    }
+    .area-tags span {
+      background:#f7f3e9;
+      border:1px solid #eadcb2;
+      padding:8px 13px;
+      border-radius:999px;
+      font-weight:700;
+    }
+    .ready-card {
+      background:var(--navy);
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .ready-card h3 { color:#fff; font-size:1.8rem; margin-bottom:10px; }
+    .ready-card p { color:rgba(255,255,255,.72); margin-bottom:14px; }
+    .ready-card > a:not(.btn) { color:var(--gold2); font-weight:800; margin:4px 0; }
+    .ready-card .btn { margin-top:20px; }
+
+    .contact-grid { align-items:start; }
+    .contact-info {
+      background:var(--navy);
+      color:#fff;
+      border-radius:18px;
+      padding:36px;
+      box-shadow:var(--shadow);
+    }
+    .contact-info h2 { color:#fff; font-size:2.3rem; margin-bottom:12px; }
+    .contact-info > p { color:rgba(255,255,255,.72); }
+    .contact-box {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:14px;
+      padding:14px;
+      border-radius:11px;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.06);
+    }
+    .contact-box > span {
+      width:42px;
+      height:42px;
+      min-width:42px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:var(--gold);
+      color:var(--navy);
+    }
+    .contact-box div { display:grid; }
+    .contact-box a,
+    .contact-box strong { color:#fff; font-weight:800; }
+
+    form {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:32px;
+      box-shadow:var(--shadow);
+      display:grid;
+      gap:13px;
+    }
+    form h2, form h3 { text-align:center; }
+    .form-row {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    input, select, textarea {
+      width:100%;
+      min-height:48px;
+      padding:13px 14px;
+      border-radius:9px;
+      border:1px solid #d4dae3;
+      outline:none;
+      font-size:16px;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(214,167,42,.15);
+    }
+    textarea { resize:vertical; min-height:130px; }
+
+    .google-map-card,
+    .google-card {
+      overflow:hidden;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--line);
+    }
+    .google-map-card iframe {
+      width:100%;
+      height:430px;
+      border:0;
+    }
+    .google-card {
+      background:var(--navy);
+      color:#fff;
+      padding:36px;
+    }
+    .google-card h3 { color:#fff; font-size:1.8rem; margin-bottom:10px; }
+    .google-card p { color:rgba(255,255,255,.72); margin-bottom:18px; }
+    .google-stars { color:var(--gold2); letter-spacing:4px; font-size:1.2rem; margin-bottom:10px; }
+
+    .review-wrap { max-width:900px; margin:auto; }
+    #reviewList {
+      display:grid;
+      gap:14px;
+      margin-bottom:24px;
+    }
+    .review-card {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 7px 20px rgba(7,24,45,.05);
+    }
+    .reviewer { font-weight:900; color:var(--navy); }
+    .date { color:var(--muted); font-size:.84rem; margin-left:6px; }
+    .review-stars { color:#dfa800; margin:5px 0; }
+
+    footer {
+      background:#03101f;
+      color:rgba(255,255,255,.7);
+      padding:46px 0 90px;
+    }
+    .footer-grid {
+      display:grid;
+      grid-template-columns:1.3fr 1fr 1fr;
+      gap:34px;
+    }
+    footer h3 { color:var(--gold2); margin-bottom:12px; }
+    footer a, footer p { display:block; color:rgba(255,255,255,.67); margin-bottom:7px; }
+    .copyright {
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.1);
+      margin-top:28px;
+      padding-top:18px;
+    }
+
+    .floating-actions {
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:1200;
+      display:grid;
+      gap:8px;
+    }
+    .floating-actions a {
+      min-width:145px;
+      min-height:48px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:10px 17px;
+      font-weight:900;
+      box-shadow:0 10px 25px rgba(0,0,0,.22);
+    }
+    .float-call { background:var(--gold); color:var(--navy); }
+    .float-quote { background:var(--navy2); color:#fff; }
+
+    @media (max-width:980px) {
+      .menu-btn { display:block; }
+      .nav-links {
+        position:fixed;
+        left:0;
+        right:0;
+        top:120px;
+        z-index:999;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        padding:14px 18px 22px;
+        background:#fff;
+        border-top:1px solid var(--line);
+        box-shadow:0 14px 30px rgba(7,24,45,.14);
+        transform:translateY(-160%);
+        opacity:0;
+        pointer-events:none;
+        transition:.28s ease;
+      }
+      .nav-links.open {
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:auto;
+      }
+      .nav-links a {
+        display:block;
+        width:100%;
+        padding:14px 8px;
+        border-bottom:1px solid var(--line);
+      }
+      .nav-links a:last-child { border-bottom:0; }
+      .nav-cta { display:none; }
+
+      .hero-grid,
+      .intro-grid,
+      .why-grid,
+      .area-grid,
+      .contact-grid,
+      .google-grid {
+        grid-template-columns:1fr;
+      }
+      .hero-copy { text-align:center; }
+      .hero-actions, .trust-row { justify-content:center; }
+      .services-grid { grid-template-columns:repeat(2,1fr); }
+      .form-row { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+    }
+
+    @media (max-width:640px) {
+      .topbar-inner {
+        justify-content:center;
+        text-align:center;
+      }
+      .topbar-inner span { display:none; }
+      .brand img {
+        width:105px;
+        height:46px;
+      }
+      .nav { min-height:66px; }
+      .nav-links { top:108px; }
+      .hero { padding:42px 0 48px; }
+      h1 { font-size:clamp(2.05rem,11vw,3.1rem); }
+      h2 { font-size:clamp(1.7rem,8vw,2.35rem) !important; }
+      .hero-actions {
+        display:grid;
+        grid-template-columns:1fr;
+      }
+      .hero-actions .btn { width:100%; }
+      .trust-row {
+        display:grid;
+        grid-template-columns:1fr;
+        text-align:left;
+        width:fit-content;
+        margin-inline:auto;
+      }
+      .estimate-inner {
+        flex-direction:column;
+        text-align:center;
+      }
+      .estimate-inner .btn { width:100%; }
+      .section { padding:54px 0; }
+      .services-grid { grid-template-columns:1fr; }
+      .service-card p { min-height:0; }
+      .why-panel,
+      .area-card,
+      .ready-card,
+      .contact-info,
+      form,
+      .google-card {
+        padding:24px 18px;
+      }
+      .google-map-card iframe { height:320px; }
+      .footer-grid { grid-template-columns:1fr; text-align:center; }
+      footer { padding-bottom:92px; }
+      .floating-actions {
+        left:10px;
+        right:10px;
+        bottom:10px;
+        grid-template-columns:1fr 1fr;
+      }
+      .floating-actions a {
+        min-width:0;
+        width:100%;
+        padding:10px 8px;
+        font-size:.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Professional home repair and HVAC service in Central Ohio</span>
+      <a href="tel:+16144486291">Call or Text: (614) 448-6291</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="ers-business-card.jpg" alt="ERS Home Service business card logo">
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#service-area">Service Area</a>
+        <a href="#google-reviews">Google Reviews</a>
+        <a href="#reviews">Leave a Review</a>
+        <a href="#quote">Contact</a>
+      </nav>
+
+      <a class="btn btn-gold nav-cta" href="#ersForm">Free Estimate</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="rating">★★★★★ <span>Local 5-Star Service</span></div>
+          <p class="eyebrow">Handyman & HVAC Services in Columbus, Ohio</p>
+          <h1>Professional Home Service, <span>Done Right.</span></h1>
+          <p class="hero-text">
+            Reliable help for HVAC, plumbing, electrical, painting, drywall, carpentry,
+            maintenance, and home repairs throughout Columbus and nearby communities.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#ersForm">Get a Free Estimate</a>
+            <a class="btn btn-outline" href="tel:+16144486291">Call (614) 448-6291</a>
+          </div>
+
+          <div class="trust-row">
+            <span>Clear Communication</span>
+            <span>Fair Pricing</span>
+            <span>Quality Workmanship</span>
+          </div>
+        </div>
+
+        <div class="service-slider" aria-label="ERS Home Service specialties">
+          <div class="service-slides">
+            <figure class="service-slide active">
+              <img src="service-hvac.jpg" alt="HVAC service">
+              <figcaption><strong>HVAC Services</strong><span>Diagnostics, repair and maintenance</span></figcaption>
+            </figure>
+            <figure class="service-slide">
+              <img src="service-plumbing.jpg" alt="Plumbing service">
+              <figcaption><strong>Plumbing</strong><span>Repairs, fixtures, drains and disposals</span></figcaption>
+            </figure>
+            <figure class="service-slide">
+              <img src="service-electrical.jpg" alt="Electrical service">
+              <figcaption><strong>Electrical</strong><span>Lighting, outlets, switches and fans</span></figcaption>
+            </figure>
+            <figure class="service-slide">
+              <img src="service-drywall.jpg" alt="Drywall repair service">
+              <figcaption><strong>Drywall Repair</strong><span>Patching, finishing and water-damage repair</span></figcaption>
+            </figure>
+            <figure class="service-slide">
+              <img src="service-painting.jpg" alt="Painting service">
+              <figcaption><strong>Painting</strong><span>Walls, trim, doors and touch-ups</span></figcaption>
+            </figure>
+            <figure class="service-slide">
+              <img src="service-handyman.jpg" alt="Handyman service">
+              <figcaption><strong>Handyman Services</strong><span>Carpentry, maintenance and home repairs</span></figcaption>
+            </figure>
+          </div>
+
+          <div class="slider-dots" aria-label="Choose a service image">
+            <button class="active" type="button" aria-label="Show HVAC"></button>
+            <button type="button" aria-label="Show Plumbing"></button>
+            <button type="button" aria-label="Show Electrical"></button>
+            <button type="button" aria-label="Show Drywall"></button>
+            <button type="button" aria-label="Show Painting"></button>
+            <button type="button" aria-label="Show Handyman"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="estimate-strip">
+      <div class="container estimate-inner">
+        <div>
+          <strong>Have a repair or project in mind?</strong>
+          <p>Tell us what you need and receive a free estimate.</p>
+        </div>
+        <a class="btn btn-navy" href="#ersForm">Request an Estimate</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container intro-grid">
+        <div class="video-card">
+          <video controls autoplay muted loop playsinline preload="metadata" poster="ers-business-card.jpg">
+            <source src="promo-video.mp4" type="video/mp4">
+            Your browser does not support this video.
+          </video>
+          <p>Tap the video to turn on sound</p>
+        </div>
+
+        <div class="intro-copy">
+          <p class="eyebrow dark">Who We Are</p>
+          <h2>Your Local Partner for Home Repairs</h2>
+          <p>
+            ERS Home Service helps homeowners, landlords, and property managers handle
+            repairs, maintenance, and installations without the stress.
+          </p>
+
+          <div class="steps">
+            <div class="step"><span>1</span><div><strong>Tell us about the job</strong><p>Call, text, or complete the estimate form.</p></div></div>
+            <div class="step"><span>2</span><div><strong>Receive clear pricing</strong><p>We explain the work before getting started.</p></div></div>
+            <div class="step"><span>3</span><div><strong>Enjoy professional results</strong><p>We complete the work carefully and cleanly.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow dark">Residential Services</p>
+          <h2>Home Repairs and Improvements</h2>
+          <p>Choose a service below to add it to your free estimate request.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card" data-service="HVAC"><div class="icon">❄</div><h3>HVAC Services</h3><p>Diagnostics, tune-ups, thermostats, capacitors, airflow checks, and repairs.</p><span>Request Service →</span></article>
+          <article class="service-card" data-service="Plumbing"><div class="icon">🔧</div><h3>Plumbing</h3><p>Faucets, toilets, garbage disposals, drains, leaks, and replacements.</p><span>Request Service →</span></article>
+          <article class="service-card" data-service="Electrical"><div class="icon">⚡</div><h3>Electrical</h3><p>Lighting, ceiling fans, outlets, switches, and smart-home devices.</p><span>Request Service →</span></article>
+          <article class="service-card" data-service="Painting"><div class="icon">▣</div><h3>Painting</h3><p>Walls, trim, doors, touch-ups, cabinets, and professional finish work.</p><span>Request Service →</span></article>
+          <article class="service-card" data-service="Drywall"><div class="icon">▦</div><h3>Drywall</h3><p>Installation, patches, water-damage repair, finishing, and sanding.</p><span>Request Service →</span></article>
+          <article class="service-card" data-service="Carpentry"><div class="icon">⌁</div><h3>Carpentry</h3><p>Doors, framing, trim, baseboards, shelving, and general repairs.</p><span>Request Service →</span></article>
+          <article class="service-card" data-service="Maintenance & Repairs"><div class="icon">🛠</div><h3>Maintenance & Repairs</h3><p>General home repairs, replacements, punch-list work, and upkeep.</p><span>Request Service →</span></article>
+          <article class="service-card" data-service="Commercial Maintenance"><div class="icon">▤</div><h3>Commercial Maintenance</h3><p>Repair and maintenance help for offices, rentals, and businesses.</p><span>Request Service →</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container why-grid">
+        <div class="why-panel">
+          <p class="eyebrow">Why Choose ERS</p>
+          <h2>Professional Service From Start to Finish</h2>
+          <p>Every customer deserves to feel informed, respected, and confident in the work being completed.</p>
+
+          <div class="why-list">
+            <div><span>✓</span><p><strong>Clear communication</strong><br>We explain the work and keep you informed.</p></div>
+            <div><span>✓</span><p><strong>Respect for your property</strong><br>We work carefully and clean up the job area.</p></div>
+            <div><span>✓</span><p><strong>Multiple home services</strong><br>One trusted contact for many repair needs.</p></div>
+            <div><span>✓</span><p><strong>Local and dependable</strong><br>Serving Columbus and nearby communities.</p></div>
+          </div>
+        </div>
+
+        <div class="business-card">
+          <img src="ers-business-card.jpg" alt="ERS Home Service business card">
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="service-area">
+      <div class="container area-grid">
+        <div class="area-card">
+          <p class="eyebrow dark">Service Areas</p>
+          <h2>Serving Columbus and Central Ohio</h2>
+          <p>Contact us to confirm service availability for your address.</p>
+          <div class="area-tags">
+            <span>Columbus</span><span>Dublin</span><span>Powell</span><span>Westerville</span>
+            <span>Worthington</span><span>Hilliard</span><span>Gahanna</span><span>Lewis Center</span><span>Galena</span>
+          </div>
+        </div>
+
+        <div class="ready-card">
+          <h3>Ready to Get Started?</h3>
+          <p>Call, text, or submit an estimate request today.</p>
+          <a href="tel:+16144486291">(614) 448-6291</a>
+          <a href="mailto:e.r.s.home.service@gmail.com">e.r.s.home.service@gmail.com</a>
+          <a class="btn btn-gold" href="#ersForm">Get an Estimate</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quote">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow">Contact ERS</p>
+          <h2>Tell Us About Your Project</h2>
+          <p>Give us the details and we will contact you about your estimate.</p>
+
+          <div class="contact-box"><span>☎</span><div><small>Call or Text</small><a href="tel:+16144486291">(614) 448-6291</a></div></div>
+          <div class="contact-box"><span>✉</span><div><small>Email</small><a href="mailto:e.r.s.home.service@gmail.com">e.r.s.home.service@gmail.com</a></div></div>
+          <div class="contact-box"><span>⌂</span><div><small>Service Area</small><strong>Columbus, Ohio & nearby communities</strong></div></div>
+        </div>
+
+        <form id="ersForm">
+          <h2>Request a Free Estimate</h2>
+
+          <div class="form-row">
+            <input name="name" placeholder="Full Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+          </div>
+
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Email Address" required>
+            <select name="service" id="serviceInput" required>
+              <option value="">Select Service Type</option>
+              <option>HVAC</option>
+              <option>Plumbing</option>
+              <option>Electrical</option>
+              <option>Painting</option>
+              <option>Drywall</option>
+              <option>Carpentry</option>
+              <option>Maintenance & Repairs</option>
+              <option>Commercial Maintenance</option>
+              <option>Ceiling Fan Installation</option>
+              <option>Garbage Disposal Installation</option>
+              <option>Door Installation & Repair</option>
+              <option>Flooring & Baseboards</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <input name="address" placeholder="Address" required>
+            <input name="zip" placeholder="Zip Code" required>
+          </div>
+
+          <textarea name="message" placeholder="Describe your project..." rows="6" required></textarea>
+          <button class="btn btn-gold" type="submit">Send Estimate Request</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section soft" id="google-reviews">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow dark">Google Business</p>
+          <h2>Find ERS Home Service on Google</h2>
+          <p>Open our current Google business listing to see directions, photos, and the newest customer reviews.</p>
+        </div>
+
+        <div class="google-grid">
+          <div class="google-map-card">
+            <iframe title="ERS Home Service Google listing" src="https://www.google.com/maps?q=ERS+Home+Service+Columbus+Ohio+614-448-6291&output=embed" loading="lazy" allowfullscreen></iframe>
+          </div>
+
+          <div class="google-card">
+            <div class="google-stars">★★★★★</div>
+            <h3>View Our Google Reviews</h3>
+            <p>Use the button below to open the current ERS Home Service Google results and reviews.</p>
+            <a class="btn btn-gold" href="https://www.google.com/search?q=ERS+Home+Service+Columbus+Ohio+614-448-6291+reviews" target="_blank" rel="noopener">View Google Reviews</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container review-wrap">
+        <div class="section-heading">
+          <p class="eyebrow dark">Website Reviews</p>
+          <h2>Leave a Review</h2>
+          <p>Reviews submitted here will appear below after they are saved by your connected Google Apps Script.</p>
+        </div>
+
+        <div id="reviewList"></div>
+
+        <form id="reviewForm">
+          <h3>Submit Your Review</h3>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <select name="rating" required>
+            <option value="">Select Rating</option>
+            <option value="5">★★★★★ 5 Stars</option>
+            <option value="4">★★★★ 4 Stars</option>
+            <option value="3">★★★ 3 Stars</option>
+            <option value="2">★★ 2 Stars</option>
+            <option value="1">★ 1 Star</option>
+          </select>
+          <textarea name="review" placeholder="Write your review..." rows="4" required></textarea>
+          <button class="btn btn-gold" type="submit">Submit Review</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><h3>ERS Home Service</h3><p>Professional handyman, HVAC, and home repair services for Columbus and surrounding communities.</p></div>
+      <div><h3>Services</h3><a href="#services">HVAC</a><a href="#services">Plumbing</a><a href="#services">Electrical</a><a href="#services">Painting</a></div>
+      <div><h3>Contact</h3><a href="tel:+16144486291">(614) 448-6291</a><a href="mailto:e.r.s.home.service@gmail.com">e.r.s.home.service@gmail.com</a><a href="#ersForm">Request an Estimate</a></div>
+    </div>
+    <p class="copyright">© <span id="year"></span> ERS Home Service. All Rights Reserved.</p>
+  </footer>
+
+  <div class="floating-actions">
+    <a class="float-call" href="tel:+16144486291">Call Now</a>
+    <a class="float-quote" href="#ersForm">Free Estimate</a>
+  </div>
+
+  <script>
+    const scriptURL = "";
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuBtn.textContent = navLinks.classList.contains("open") ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    document.querySelectorAll(".service-card").forEach(card => {
+      card.addEventListener("click", () => {
+        document.getElementById("serviceInput").value = card.dataset.service || "";
+        document.getElementById("ersForm").scrollIntoView({ behavior:"smooth" });
+      });
+    });
+
+    const slides = [...document.querySelectorAll(".service-slide")];
+    const dots = [...document.querySelectorAll(".slider-dots button")];
+    let currentSlide = 0;
+    let sliderTimer;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === currentSlide));
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentSlide));
+    }
+
+    function startSlider() {
+      clearInterval(sliderTimer);
+      sliderTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        startSlider();
+      });
+    });
+
+    startSlider();
+
+    document.getElementById("ersForm").addEventListener("submit", async event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const button = form.querySelector("button");
+      const payload = Object.fromEntries(new FormData(form));
+
+      if (!scriptURL) {
+        alert("The estimate form needs your Google Apps Script web-app URL.");
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "Sending...";
+
+      try {
+        const response = await fetch(scriptURL, {
+          method:"POST",
+          headers:{"Content-Type":"text/plain;charset=utf-8"},
+          body:JSON.stringify(payload)
+        });
+        const data = await response.json();
+
+        if (data.result === "success") {
+          alert("✅ Estimate request sent!");
+          form.reset();
+        } else {
+          throw new Error(data.message || "Unable to send.");
+        }
+      } catch (error) {
+        alert("❌ " + error.message);
+      } finally {
+        button.disabled = false;
+        button.textContent = "Send Estimate Request";
+      }
+    });
+
+    const reviewForm = document.getElementById("reviewForm");
+    const reviewList = document.getElementById("reviewList");
+
+    function addReviewCard(review) {
+      const card = document.createElement("div");
+      card.className = "review-card";
+
+      const header = document.createElement("div");
+      const name = document.createElement("span");
+      name.className = "reviewer";
+      name.textContent = review.name || "Customer";
+
+      const date = document.createElement("span");
+      date.className = "date";
+      date.textContent = review.date || "";
+
+      const stars = document.createElement("div");
+      stars.className = "review-stars";
+      const rating = Number(review.rating) || 5;
+      stars.textContent = "★".repeat(rating) + "☆".repeat(5-rating);
+
+      const text = document.createElement("div");
+      text.textContent = review.review || "";
+
+      header.append(name, date);
+      card.append(header, stars, text);
+      reviewList.appendChild(card);
+    }
+
+    async function loadReviews() {
+      if (!scriptURL) return;
+
+      reviewList.innerHTML = "<p>Loading reviews...</p>";
+
+      try {
+        const response = await fetch(`${scriptURL}?action=getReviews&t=${Date.now()}`);
+        const data = await response.json();
+        reviewList.innerHTML = "";
+
+        if (!Array.isArray(data.reviews) || data.reviews.length === 0) {
+          reviewList.innerHTML = "<p>No website reviews yet.</p>";
+          return;
+        }
+
+        [...data.reviews].reverse().forEach(addReviewCard);
+      } catch (error) {
+        reviewList.innerHTML = "<p>Reviews could not be loaded right now.</p>";
+      }
+    }
+
+    reviewForm.addEventListener("submit", async event => {
+      event.preventDefault();
+      const button = reviewForm.querySelector("button");
+      const data = Object.fromEntries(new FormData(reviewForm));
+
+      if (!scriptURL) {
+        alert("The review form needs your Google Apps Script web-app URL.");
+        return;
+      }
+
+      data.type = "review";
+      data.date = new Date().toLocaleDateString();
+
+      button.disabled = true;
+      button.textContent = "Submitting...";
+
+      try {
+        const response = await fetch(scriptURL, {
+          method:"POST",
+          headers:{"Content-Type":"text/plain;charset=utf-8"},
+          body:JSON.stringify(data)
+        });
+        const result = await response.json();
+
+        if (result.result === "success") {
+          alert("✅ Thank you! Your review was saved.");
+          reviewForm.reset();
+          await loadReviews();
+        } else {
+          throw new Error(result.message || "Review was not saved.");
+        }
+      } catch (error) {
+        alert("❌ " + error.message);
+      } finally {
+        button.disabled = false;
+        button.textContent = "Submit Review";
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    loadReviews();
+  </script>
+</body>
+</html>
