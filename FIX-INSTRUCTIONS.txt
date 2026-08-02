@@ -1,0 +1,79 @@
+ERS GOOGLE FORM BACKEND — EXACT FIX
+
+This fixes BOTH:
+1. Request a Free Estimate
+2. Submit Review and display saved reviews
+
+STEP 1 — CREATE OR OPEN YOUR GOOGLE SHEET
+1. Open Google Sheets.
+2. Create a blank sheet named:
+   ERS Website Forms
+
+STEP 2 — OPEN APPS SCRIPT FROM THE SHEET
+1. In that Google Sheet, click Extensions.
+2. Click Apps Script.
+3. Delete all old code.
+4. Open GoogleAppsScript_FIXED.gs from this folder.
+5. Copy all the code.
+6. Paste it into Apps Script.
+7. Click Save.
+
+IMPORTANT:
+Open Apps Script FROM the Google Sheet.
+Do not create a separate standalone Apps Script project.
+
+STEP 3 — DEPLOY AS WEB APP
+1. Click Deploy.
+2. Click New deployment.
+3. Click the gear icon.
+4. Select Web app.
+5. Description: ERS Website Forms
+6. Execute as: Me
+7. Who has access: Anyone
+8. Click Deploy.
+9. Approve the Google permissions.
+10. Copy the Web app URL ending in /exec.
+
+STEP 4 — TEST THE URL
+Paste the /exec URL into Chrome.
+
+You should see:
+{"result":"success","message":"ERS Home Service web app is working."}
+
+If you see a Google sign-in screen or permission error,
+the deployment is not set to Anyone.
+
+STEP 5 — PUT THE NEW URL IN INDEX.HTML
+Open index.html and search for:
+
+const scriptURL =
+
+It must look like:
+
+const scriptURL = "YOUR-NEW-WEB-APP-URL-HERE";
+
+Use the URL ending with /exec, not /dev.
+
+STEP 6 — UPLOAD INDEX.HTML TO GITHUB
+1. Replace the old index.html.
+2. Commit changes.
+3. Wait 2–3 minutes.
+4. Refresh with Command + Shift + R.
+
+STEP 7 — TEST BOTH FORMS
+Submit one estimate request.
+The Google Sheet will automatically create an Estimates tab.
+
+Submit one review.
+The Google Sheet will automatically create a Reviews tab.
+The saved review will appear on the website after reloading.
+
+IMPORTANT WHEN YOU CHANGE APPS SCRIPT LATER
+1. Click Deploy.
+2. Manage deployments.
+3. Click Edit.
+4. Version: New version.
+5. Click Deploy.
+
+You must deploy a new version after changing Apps Script code.
+Saving the code alone does not update the live web app.
