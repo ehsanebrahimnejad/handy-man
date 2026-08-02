@@ -1,0 +1,55 @@
+ERS FINAL FIX — EMAIL + MOBILE MENU
+
+PART 1 — UPLOAD THE WEBSITE
+
+Upload every website file in this folder directly to the root of your GitHub repository.
+Replace the old index.html.
+
+After committing:
+1. Wait 2–3 minutes.
+2. On Mac press Command + Shift + R.
+3. Test the menu button on your phone.
+
+PART 2 — REPLACE GOOGLE APPS SCRIPT
+
+1. Open the Google Sheet connected to your website.
+2. Click Extensions > Apps Script.
+3. Delete all old Apps Script code.
+4. Open GoogleAppsScript_EMAIL_FIXED.gs.
+5. Copy and paste all of it into Apps Script.
+6. Click Save.
+
+PART 3 — DEPLOY A NEW VERSION
+
+1. Click Deploy.
+2. Click Manage deployments.
+3. Click the pencil/Edit icon.
+4. Under Version, select New version.
+5. Execute as: Me.
+6. Who has access: Anyone.
+7. Click Deploy.
+8. Approve MailApp/email permission if Google asks.
+9. Copy the URL ending in /exec.
+
+PART 4 — UPDATE INDEX.HTML ONLY IF THE URL CHANGED
+
+Search index.html for:
+
+const scriptURL =
+
+Paste the new /exec URL between the quotation marks.
+
+PART 5 — TEST
+
+Submit a Free Estimate.
+
+You should receive an email at:
+e.r.s.home.service@gmail.com
+
+Also check the Google Sheet:
+The request should appear in the Estimates tab.
+
+IMPORTANT:
+Check Gmail Spam and Promotions the first time.
+Google must be allowed to send email through MailApp.
+Saving Apps Script is not enough. You must deploy a NEW VERSION.
