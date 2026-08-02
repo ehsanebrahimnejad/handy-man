@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ERS Home Service provides HVAC, electrical, plumbing, painting, drywall, carpentry, and handyman services in Columbus, Ohio and surrounding communities." />
+  <meta name="theme-color" content="#07182d" />
+  <title>ERS Home Service | Columbus, Ohio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Professional home repair and HVAC service in Central Ohio</span>
+      <a href="tel:+16144486291">Call or Text: (614) 448-6291</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="ers-business-card.jpg" alt="ERS Home Service business card logo" />
+        <span class="brand-name">
+          <strong>ERS Home Service</strong>
+          <small>Professional Home Repairs</small>
+        </span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#service-area">Service Area</a>
+        <a href="#google-reviews">Google Reviews</a>
+        <a href="#reviews">Leave a Review</a>
+        <a href="#quote">Contact</a>
+      </nav>
+
+      <a class="btn btn-gold nav-cta" href="#ersForm">Free Estimate</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="rating">★★★★★ <span>Local 5-Star Service</span></div>
+          <p class="eyebrow">Handyman & HVAC Services in Columbus, Ohio</p>
+          <h1>Professional Home Service, <span>Done Right.</span></h1>
+          <p class="hero-text">
+            Reliable help for HVAC, plumbing, electrical, painting, drywall, carpentry,
+            maintenance, and home repairs throughout Columbus and nearby communities.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#ersForm">Get a Free Estimate</a>
+            <a class="btn btn-outline" href="tel:+16144486291">Call (614) 448-6291</a>
+          </div>
+
+          <div class="trust-row">
+            <span>Clear Communication</span>
+            <span>Fair Pricing</span>
+            <span>Quality Workmanship</span>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src="ers-technician.jpg" alt="ERS Home Service technician" />
+        </div>
+      </div>
+    </section>
+
+    <section class="estimate-strip">
+      <div class="container estimate-strip-inner">
+        <div>
+          <strong>Have a repair or project in mind?</strong>
+          <p>Tell us what you need and receive a free estimate.</p>
+        </div>
+        <a class="btn btn-navy" href="#ersForm">Request an Estimate</a>
+      </div>
+    </section>
+
+    <section class="section intro">
+      <div class="container intro-grid">
+        <div class="video-card">
+          <video controls autoplay muted loop playsinline preload="auto" poster="ers-business-card.jpg">
+            <source src="promo-video.mp4" type="video/mp4" />
+            Your browser does not support this video.
+          </video>
+          <p>Tap the video to turn on sound</p>
+        </div>
+
+        <div class="intro-copy">
+          <p class="eyebrow dark">Who We Are</p>
+          <h2>Your Local Partner for Home Repairs</h2>
+          <p>
+            ERS Home Service helps homeowners, landlords, and property managers handle
+            repairs, maintenance, and installations without the stress.
+          </p>
+
+          <div class="steps">
+            <div class="step"><span>1</span><div><strong>Tell us about the job</strong><p>Call, text, or complete the estimate form.</p></div></div>
+            <div class="step"><span>2</span><div><strong>Receive clear pricing</strong><p>We explain the work before getting started.</p></div></div>
+            <div class="step"><span>3</span><div><strong>Enjoy professional results</strong><p>We complete the work carefully and cleanly.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow dark">Residential Services</p>
+          <h2>Home Repairs and Improvements</h2>
+          <p>Choose a service below to add it to your free estimate request.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card" data-service="HVAC">
+            <div class="icon">❄</div><h3>HVAC Services</h3>
+            <p>Diagnostics, tune-ups, thermostats, capacitors, airflow checks, and repairs.</p>
+            <span>Request Service →</span>
+          </article>
+
+          <article class="service-card" data-service="Plumbing">
+            <div class="icon">🔧</div><h3>Plumbing</h3>
+            <p>Faucets, toilets, garbage disposals, drains, leaks, and replacements.</p>
+            <span>Request Service →</span>
+          </article>
+
+          <article class="service-card" data-service="Electrical">
+            <div class="icon">⚡</div><h3>Electrical</h3>
+            <p>Lighting, ceiling fans, outlets, switches, and smart-home devices.</p>
+            <span>Request Service →</span>
+          </article>
+
+          <article class="service-card" data-service="Painting">
+            <div class="icon">▣</div><h3>Painting</h3>
+            <p>Walls, trim, doors, touch-ups, cabinets, and professional finish work.</p>
+            <span>Request Service →</span>
+          </article>
+
+          <article class="service-card" data-service="Drywall">
+            <div class="icon">▦</div><h3>Drywall</h3>
+            <p>Installation, patches, water-damage repair, finishing, and sanding.</p>
+            <span>Request Service →</span>
+          </article>
+
+          <article class="service-card" data-service="Carpentry">
+            <div class="icon">⌁</div><h3>Carpentry</h3>
+            <p>Doors, framing, trim, baseboards, shelving, and general repairs.</p>
+            <span>Request Service →</span>
+          </article>
+
+          <article class="service-card" data-service="Maintenance & Repairs">
+            <div class="icon">🛠</div><h3>Maintenance & Repairs</h3>
+            <p>General home repairs, replacements, punch-list work, and upkeep.</p>
+            <span>Request Service →</span>
+          </article>
+
+          <article class="service-card" data-service="Commercial Maintenance">
+            <div class="icon">▤</div><h3>Commercial Maintenance</h3>
+            <p>Repair and maintenance help for offices, rentals, and businesses.</p>
+            <span>Request Service →</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container why-grid">
+        <div class="why-panel">
+          <p class="eyebrow">Why Choose ERS</p>
+          <h2>Professional Service From Start to Finish</h2>
+          <p>Every customer deserves to feel informed, respected, and confident in the work being completed.</p>
+
+          <div class="why-list">
+            <div><span>✓</span><p><strong>Clear communication</strong><br />We explain the work and keep you informed.</p></div>
+            <div><span>✓</span><p><strong>Respect for your property</strong><br />We work carefully and clean up the job area.</p></div>
+            <div><span>✓</span><p><strong>Multiple home services</strong><br />One trusted contact for many repair needs.</p></div>
+            <div><span>✓</span><p><strong>Local and dependable</strong><br />Serving Columbus and nearby communities.</p></div>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <img src="ers-business-card.jpg" alt="ERS Home Service business card" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="service-area">
+      <div class="container area-grid">
+        <div class="area-card">
+          <p class="eyebrow dark">Service Areas</p>
+          <h2>Serving Columbus and Central Ohio</h2>
+          <p>Contact us to confirm service availability for your address.</p>
+
+          <div class="area-tags">
+            <span>Columbus</span><span>Dublin</span><span>Powell</span>
+            <span>Westerville</span><span>Worthington</span><span>Hilliard</span>
+            <span>Gahanna</span><span>Lewis Center</span><span>Galena</span>
+          </div>
+        </div>
+
+        <div class="ready-card">
+          <h3>Ready to Get Started?</h3>
+          <p>Call, text, or submit an estimate request today.</p>
+          <a href="tel:+16144486291">(614) 448-6291</a>
+          <a href="mailto:e.r.s.home.service@gmail.com">e.r.s.home.service@gmail.com</a>
+          <a class="btn btn-gold" href="#ersForm">Get an Estimate</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quote">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow">Contact ERS</p>
+          <h2>Tell Us About Your Project</h2>
+          <p>Give us the details and we will contact you about your estimate.</p>
+
+          <div class="contact-box"><span>☎</span><div><small>Call or Text</small><a href="tel:+16144486291">(614) 448-6291</a></div></div>
+          <div class="contact-box"><span>✉</span><div><small>Email</small><a href="mailto:e.r.s.home.service@gmail.com">e.r.s.home.service@gmail.com</a></div></div>
+          <div class="contact-box"><span>⌂</span><div><small>Service Area</small><strong>Columbus, Ohio & nearby communities</strong></div></div>
+        </div>
+
+        <form id="ersForm">
+          <h2>Request a Free Estimate</h2>
+          <div class="form-row">
+            <input name="name" placeholder="Full Name" required />
+            <input type="tel" name="phone" placeholder="Phone Number" required />
+          </div>
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Email Address" required />
+            <select name="service" id="serviceInput" required>
+              <option value="">Select Service Type</option>
+              <option value="HVAC">HVAC</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Painting">Painting</option>
+              <option value="Drywall">Drywall</option>
+              <option value="Carpentry">Carpentry</option>
+              <option value="Maintenance & Repairs">Maintenance & Repairs</option>
+              <option value="Commercial Maintenance">Commercial Maintenance</option>
+              <option value="Ceiling Fan Installation">Ceiling Fan Installation</option>
+              <option value="Garbage Disposal Installation">Garbage Disposal Installation</option>
+              <option value="Door Installation & Repair">Door Installation & Repair</option>
+              <option value="Flooring & Baseboards">Flooring & Baseboards</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <input name="address" placeholder="Address" required />
+            <input name="zip" placeholder="Zip Code" required />
+          </div>
+          <textarea name="message" placeholder="Describe your project..." rows="6" required></textarea>
+          <button class="btn btn-gold" type="submit">Send Estimate Request</button>
+        </form>
+      </div>
+    </section>
+
+
+    <section class="section google-reviews-section" id="google-reviews">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow dark">Live Google Business View</p>
+          <h2>Find ERS Home Service on Google</h2>
+          <p>
+            View our current Google business listing, rating, directions, photos, and the
+            latest customer reviews directly from Google.
+          </p>
+        </div>
+
+        <div class="google-reviews-grid">
+          <div class="google-map-card">
+            <iframe
+              title="ERS Home Service Google Business listing"
+              src="https://www.google.com/maps?q=ERS+Home+Service+Powell+Ohio+614-448-6291&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="google-review-card">
+            <div class="google-logo">G</div>
+            <div class="google-stars">★★★★★</div>
+            <h3>See Our Live Google Reviews</h3>
+            <p>
+              Google controls the live review information. Use the button below to open
+              the ERS Home Service listing and see the newest reviews.
+            </p>
+            <a
+              class="btn btn-gold"
+              href="https://www.google.com/search?q=ERS+Home+Service+Powell+Ohio+614-448-6291+reviews"
+              target="_blank"
+              rel="noopener">
+              View Live Google Reviews
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="reviews">
+      <div class="container review-wrap">
+        <div class="section-heading">
+          <p class="eyebrow dark">Customer Reviews</p>
+          <h2>What Our Customers Are Saying</h2>
+        </div>
+
+        <div id="reviewList"></div>
+
+        <form id="reviewForm">
+          <h3>Submit Your Review</h3>
+          <input type="text" name="name" placeholder="Your Name" required />
+          <select name="rating" id="rating" required>
+            <option value="">Select Rating</option>
+            <option value="5">★★★★★ 5 Stars</option>
+            <option value="4">★★★★ 4 Stars</option>
+            <option value="3">★★★ 3 Stars</option>
+            <option value="2">★★ 2 Stars</option>
+            <option value="1">★ 1 Star</option>
+          </select>
+          <textarea name="review" placeholder="Write your review..." rows="4" required></textarea>
+          <button class="btn btn-gold" type="submit">Submit Review</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><h3>ERS Home Service</h3><p>Professional handyman, HVAC, and home repair services for Columbus and surrounding communities.</p></div>
+      <div><h3>Services</h3><a href="#services">HVAC</a><a href="#services">Plumbing</a><a href="#services">Electrical</a><a href="#services">Painting</a></div>
+      <div><h3>Contact</h3><a href="tel:+16144486291">(614) 448-6291</a><a href="mailto:e.r.s.home.service@gmail.com">e.r.s.home.service@gmail.com</a><a href="#ersForm">Request an Estimate</a><a href="#google-reviews">Google Reviews</a></div>
+    </div>
+    <p class="copyright">© <span id="year"></span> ERS Home Service. All Rights Reserved.</p>
+  </footer>
+
+  <div class="floating-actions">
+    <a class="float-call" href="tel:+16144486291">Call Now</a>
+    <a class="float-quote" href="#ersForm">Free Estimate</a>
+  </div>
+
+  <script>
+    window.ERS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPDydTGKjDVhbiMHY7uhSulSEI9pENnuXof0RARQ3kpCk3ompPFuNgm0fuIfI0S9v9/exec';
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
