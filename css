@@ -1,9 +1,8 @@
-ershomefix-website/
+handy-man
 ├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-├── images/
-│   └── logo.png
-└── README.md
+├── style.css
+├── script.js
+└── assets
+      ├── ers-business-card.jpg
+      ├── ers-technician.jpg
+      ├── promo-video.mp4
