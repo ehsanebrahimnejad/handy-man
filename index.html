@@ -20,10 +20,10 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#home">
-        <img src="assets/ers-logo.jpg" alt="ERS Home Service logo" />
-        <span>
+        <img src="assets/ers-business-card.jpg" alt="ERS Home Service business card logo" />
+        <span class="brand-name">
           <strong>ERS Home Service</strong>
-          <small>You Break It, We Fix It</small>
+          <small>Professional Home Repairs</small>
         </span>
       </a>
 
@@ -33,7 +33,8 @@
         <a href="#services">Services</a>
         <a href="#why">Why Choose Us</a>
         <a href="#service-area">Service Area</a>
-        <a href="#reviews">Reviews</a>
+        <a href="#google-reviews">Google Reviews</a>
+        <a href="#reviews">Leave a Review</a>
         <a href="#quote">Contact</a>
       </nav>
 
@@ -233,7 +234,22 @@
           </div>
           <div class="form-row">
             <input type="email" name="email" placeholder="Email Address" required />
-            <input name="service" id="serviceInput" placeholder="Service Type" required />
+            <select name="service" id="serviceInput" required>
+              <option value="">Select Service Type</option>
+              <option value="HVAC">HVAC</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Painting">Painting</option>
+              <option value="Drywall">Drywall</option>
+              <option value="Carpentry">Carpentry</option>
+              <option value="Maintenance & Repairs">Maintenance & Repairs</option>
+              <option value="Commercial Maintenance">Commercial Maintenance</option>
+              <option value="Ceiling Fan Installation">Ceiling Fan Installation</option>
+              <option value="Garbage Disposal Installation">Garbage Disposal Installation</option>
+              <option value="Door Installation & Repair">Door Installation & Repair</option>
+              <option value="Flooring & Baseboards">Flooring & Baseboards</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
           <div class="form-row">
             <input name="address" placeholder="Address" required />
@@ -242,6 +258,49 @@
           <textarea name="message" placeholder="Describe your project..." rows="6" required></textarea>
           <button class="btn btn-gold" type="submit">Send Estimate Request</button>
         </form>
+      </div>
+    </section>
+
+
+    <section class="section google-reviews-section" id="google-reviews">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow dark">Live Google Business View</p>
+          <h2>Find ERS Home Service on Google</h2>
+          <p>
+            View our current Google business listing, rating, directions, photos, and the
+            latest customer reviews directly from Google.
+          </p>
+        </div>
+
+        <div class="google-reviews-grid">
+          <div class="google-map-card">
+            <iframe
+              title="ERS Home Service Google Business listing"
+              src="https://www.google.com/maps?q=ERS+Home+Service+Powell+Ohio+614-448-6291&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="google-review-card">
+            <div class="google-logo">G</div>
+            <div class="google-stars">★★★★★</div>
+            <h3>See Our Live Google Reviews</h3>
+            <p>
+              Google controls the live review information. Use the button below to open
+              the ERS Home Service listing and see the newest reviews.
+            </p>
+            <a
+              class="btn btn-gold"
+              href="https://www.google.com/search?q=ERS+Home+Service+Powell+Ohio+614-448-6291+reviews"
+              target="_blank"
+              rel="noopener">
+              View Live Google Reviews
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -276,7 +335,7 @@
     <div class="container footer-grid">
       <div><h3>ERS Home Service</h3><p>Professional handyman, HVAC, and home repair services for Columbus and surrounding communities.</p></div>
       <div><h3>Services</h3><a href="#services">HVAC</a><a href="#services">Plumbing</a><a href="#services">Electrical</a><a href="#services">Painting</a></div>
-      <div><h3>Contact</h3><a href="tel:+16144486291">(614) 448-6291</a><a href="mailto:e.r.s.home.service@gmail.com">e.r.s.home.service@gmail.com</a><a href="#ersForm">Request an Estimate</a></div>
+      <div><h3>Contact</h3><a href="tel:+16144486291">(614) 448-6291</a><a href="mailto:e.r.s.home.service@gmail.com">e.r.s.home.service@gmail.com</a><a href="#ersForm">Request an Estimate</a><a href="#google-reviews">Google Reviews</a></div>
     </div>
     <p class="copyright">© <span id="year"></span> ERS Home Service. All Rights Reserved.</p>
   </footer>
