@@ -731,7 +731,40 @@
       }
     }
 
-  </style>
+  
+    .install-app-button {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      z-index: 1201;
+      min-height: 48px;
+      padding: 10px 18px;
+      border: 0;
+      border-radius: 999px;
+      background: #d6a72a;
+      color: #07182d;
+      font-weight: 900;
+      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+      cursor: pointer;
+    }
+    @media (max-width:640px) {
+      .install-app-button {
+        left: 10px;
+        right: 10px;
+        bottom: 70px;
+        width: calc(100% - 20px);
+      }
+    }
+
+</style>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ERS Home">
+  <meta name="mobile-web-app-capable" content="yes">
+
 </head>
 
 <body>
@@ -1045,7 +1078,7 @@
   </div>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbw3ldn29DNhNYIcDeRr3wpfFizpa-QONVG8gAFb3NyBi0D_xQL5I60sjEIyNeDI8IIp5w/exec";
+    const scriptURL = "";
 
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
@@ -1222,5 +1255,41 @@
     document.getElementById("year").textContent = new Date().getFullYear();
     loadReviews();
   </script>
+
+  <button id="installAppButton" class="install-app-button" type="button" hidden>
+    Install ERS App
+  </button>
+
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .catch(error => console.error("Service worker error:", error));
+    });
+  }
+
+  let deferredInstallPrompt;
+  const installButton = document.getElementById("installAppButton");
+
+  window.addEventListener("beforeinstallprompt", event => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    installButton.hidden = false;
+  });
+
+  installButton.addEventListener("click", async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    installButton.hidden = true;
+  });
+
+  window.addEventListener("appinstalled", () => {
+    installButton.hidden = true;
+  });
+</script>
+
 </body>
 </html>

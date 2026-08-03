@@ -1,0 +1,85 @@
+ERS AI CAMERA ESTIMATE APP — SETUP
+
+WHAT WAS ADDED
+- Take pictures using the phone camera
+- Upload up to 5 project photos
+- Compress photos before upload
+- AI preliminary visual assessment
+- Measurement and project-description fields
+- Submit photos and customer information to ERS
+- Save photo requests in Google Sheets
+- Save uploaded pictures in Google Drive
+- Email ERS with the customer details and photo links
+- Works on iPhone and Android
+
+PART 1 — UPLOAD THE APP TO GITHUB
+1. Unzip ERS_AI_CAMERA_APP.zip.
+2. Upload every file and the icons folder to the root of your GitHub repository.
+3. Replace the existing index.html.
+4. Commit changes.
+5. Wait 2–3 minutes.
+6. Refresh ershomefix.com.
+
+PART 2 — REPLACE GOOGLE APPS SCRIPT
+1. Open the ERS Google Sheet.
+2. Click Extensions > Apps Script.
+3. Delete the old Apps Script code.
+4. Open GoogleAppsScript_AI_CAMERA.gs.
+5. Copy all code and paste it into Apps Script.
+6. Click Save.
+
+PART 3 — SET THE EMAIL
+The default email is:
+e.r.s.home.service@gmail.com
+
+To change it:
+1. Apps Script > Project Settings.
+2. Script Properties > Add script property.
+3. Property: ESTIMATE_EMAIL
+4. Value: your email address.
+
+PART 4 — TURN ON REAL AI IMAGE ANALYSIS
+Without an API key, the app still accepts photos and creates a basic preliminary range.
+
+For real AI picture analysis:
+1. Create an OpenAI API key in your OpenAI Platform account.
+2. Apps Script > Project Settings.
+3. Script Properties > Add script property.
+4. Property: OPENAI_API_KEY
+5. Value: paste your API key.
+6. Never put the API key inside index.html or GitHub.
+
+PART 5 — DEPLOY A NEW WEB APP VERSION
+1. Click Deploy > Manage deployments.
+2. Click the pencil icon.
+3. Version: New version.
+4. Execute as: Me.
+5. Who has access: Anyone.
+6. Click Deploy.
+7. Approve Google Drive, email and external-request permissions.
+8. Copy the /exec URL.
+
+PART 6 — CONNECT THE APP
+1. Open index.html.
+2. Find:
+   const scriptURL =
+3. Put the new /exec URL between the quotation marks.
+4. Upload the updated index.html to GitHub.
+
+PART 7 — TEST
+1. Open ershomefix.com on your phone.
+2. Open AI Photo Estimate.
+3. Take 1–2 pictures.
+4. Select a service.
+5. Tap Analyze Pictures.
+6. Enter customer information.
+7. Tap Send Pictures and Request.
+
+CHECK:
+- Google Sheet tab: Photo Estimates
+- Google Drive folder: ERS Website Estimate Photos
+- Email at e.r.s.home.service@gmail.com
+
+IMPORTANT
+AI produces only a preliminary visual range. ERS must approve the final scope and price.
+The official OpenAI Responses API accepts image inputs as URLs or base64 data URLs.
