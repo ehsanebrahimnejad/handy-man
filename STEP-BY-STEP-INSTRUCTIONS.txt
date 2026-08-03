@@ -1,0 +1,118 @@
+ERS GOOGLE SCRIPT — EMAIL ESTIMATE SETUP
+
+This script:
+- Saves estimate requests in your Google Sheet
+- Emails estimate requests to e.r.s.home.service@gmail.com
+- Saves website reviews
+- Loads approved website reviews
+
+STEP 1 — OPEN APPS SCRIPT CORRECTLY
+
+1. Open your ERS Google Sheet.
+2. Click Extensions.
+3. Click Apps Script.
+4. Delete all old code.
+
+STEP 2 — PASTE THE FULL SCRIPT
+
+1. Open ERS_Estimate_Email_Backend.gs.
+2. Select ALL the code, not only the filename.
+3. Copy it.
+4. Paste it into the Apps Script editor.
+5. Click Save.
+
+The first lines should say:
+
+const BUSINESS_EMAIL = "e.r.s.home.service@gmail.com";
+const ESTIMATES_SHEET_NAME = "Estimates";
+
+STEP 3 — TEST EMAIL PERMISSION FIRST
+
+1. At the top of Apps Script, open the function dropdown.
+2. Select TEST_EMAIL_NOW.
+3. Click Run.
+4. Click Review permissions.
+5. Choose your Google account.
+6. Click Advanced if a warning appears.
+7. Click Go to ERS Website Forms.
+8. Click Allow.
+
+Check e.r.s.home.service@gmail.com.
+
+You should receive:
+ERS Website Email Test — SUCCESS
+
+Also check Spam and Promotions.
+
+DO NOT CONTINUE until this test email arrives.
+
+STEP 4 — TEST THE COMPLETE ESTIMATE SYSTEM
+
+1. Select TEST_FULL_ESTIMATE_NOW from the function dropdown.
+2. Click Run.
+3. Return to your Google Sheet.
+4. Confirm that an Estimates tab was created.
+5. Confirm that a test row appears.
+6. Confirm that another email arrives.
+
+STEP 5 — DEPLOY THE WEB APP
+
+1. Click Deploy.
+2. Click New deployment.
+3. Click the gear icon.
+4. Select Web app.
+
+Use:
+
+Description: ERS Estimate Email System
+Execute as: Me
+Who has access: Anyone
+
+5. Click Deploy.
+6. Approve permissions if asked.
+7. Copy the Web app URL ending in /exec.
+
+STEP 6 — TEST THE DEPLOYED URL
+
+Open the /exec URL in Chrome.
+
+It must show:
+
+{"result":"success","message":"ERS Home Service estimate and email system is working."}
+
+STEP 7 — CONNECT YOUR WEBSITE
+
+Open index.html and find:
+
+const scriptURL =
+
+Replace the complete line with:
+
+const scriptURL = "YOUR-NEW-URL-ENDING-IN-EXEC";
+
+Upload index.html to GitHub and Commit changes.
+
+STEP 8 — TEST THE WEBSITE
+
+1. Wait 2–3 minutes.
+2. Open ershomefix.com.
+3. Press Command + Shift + R.
+4. Submit one test estimate.
+
+Check:
+- Google Sheet > Estimates
+- Gmail Inbox
+- Gmail Spam
+- Gmail Promotions
+
+IMPORTANT
+
+Every time you change the Apps Script code:
+
+1. Deploy
+2. Manage deployments
+3. Edit
+4. Select New version
+5. Deploy
+
+Saving the code alone does not update the live web app.
